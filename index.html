@@ -1,31 +1,122 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
-    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Portafolio en construcción de Ayleen Bahamóndez, Diseñadora integral." />
-    <title>Ayleen Bahamóndez | Sitio en construcción</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <meta name="theme-color" content="#712cf9" />
+    <title>Ayleen Bahamóndez · Diseñadora Integral</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet" />
-    </head>
+</head>
 <body>
-    <div class="site-under-construction">
-        <div class="container text-center text-white">
-            <h1 class="display-1 fw-bold mb-3">Ayleen Bahamóndez</h1>
-            <h2 class="display-6 fw-light mb-5">Diseñadora integral</h2>
-            <p class="lead mb-4">
-                <strong>Sitio web en construcción.</strong>
-            </p>
-            <p class="lead">
-                Actualmente estamos trabajando para crear una experiencia única y sofisticada. Vuelve pronto para explorar mi portafolio.
-            </p>
-            <p class="mt-5">
-                <a href="ayleen.bahamndez@uc.cl" class="btn btn-outline-light btn-lg">Trabajemos juntos</a>
-                <a href="https://www.behance.net/jasmincastill" class="btn btn-outline-secondary btn-lg">Ver más en Behance</a>
-            </p>
-        </div>
+    <!-- Navegación -->
+    <nav id="nav">
+        <a href="#" class="logo">Ayleen Bahamóndez</a>
+        <button class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
     </div>
+
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Diseñadora Integral</h1>
+            <p>Arte · Diseño · Innovación</p>
+            <div class="cta-buttons">
+                <a href="mailto:ayleen.bahamndez@uc.cl" class="btn btn-primary">Trabajemos juntos</a>
+                <a href="https://www.behance.net/jasmincastill" class="btn btn-secondary" target="_blank">Ver Behance</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="sobre-mi">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Diseño con propósito e innovación</h2>
+                <p>Apasionada por la innovación en procesos productivos y la integración de la tecnología en proyectos creativos.</p>
+                <p>Mi trabajo explora desde el diseño de producto hasta la experimentación con materiales y fabricación digital, siempre buscando conectar la funcionalidad con la emoción.</p>
+            </div>
+            <div class="skills" id="habilidades">
+                <h3>Habilidades</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Fusion 360</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 100%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Inventor</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Illustrator</span>
+                        <span>50%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 50%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Blender</span>
+                        <span>10%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--width: 10%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="portfolio" id="portafolio">
+        <div class="portfolio-header">
+            <h2>Proyectos Destacados</h2>
+        </div>
+        <div class="portfolio-grid" id="portfolioGrid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-content">
+            <h3>Conversemos</h3>
+            <p>¿Tienes un proyecto en mente? Me encantaría conocer más sobre tu visión.</p>
+            <div class="footer-links">
+                <a href="mailto:ayleen.bahamndez@uc.cl">Email</a>
+                <a href="https://www.behance.net/jasmincastill" target="_blank">Behance</a>
+                <a href="#inicio">Inicio</a>
+            </div>
+            <p class="copyright">© 2025 Ayleen Bahamóndez. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
