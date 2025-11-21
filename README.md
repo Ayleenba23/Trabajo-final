@@ -1,134 +1,149 @@
 # Trabajo-final
-¿Para qué es esta propuesta?
-# Trabajo-final
 
 ### ¿Para qué es esta propuesta?
-##### Esta propuesta tiene como proposito ser el medio por el cual se expondrían mis trabajos ya anteriormente realizados de forma clara y profesional, dandole así la relevancia y claridad para entender las especificaciones y temas que abordó cada trabajo individual, por lo que esta propuesta sería un portafolio de diseño, que a la vez refleje mis intereses y gustos.
+
+##### Esta propuesta tiene como propósito construir un portafolio profesional que exponga mis trabajos de diseño de forma clara, estética y estratégica, permitiéndome mostrar mis capacidades técnicas en proyectos industriales y, al mismo tiempo, proyectar una futura línea de especialización hacia el diseño interior y la arquitectura, integrando un estilo visual coherente, elegante e innovador.
+
+---
 
 ## ¿Para quiénes es esta propuesta?
 
 ## Usuarios menos probables:
 
-### Usuario 1 - extremo
-### Valentina Torres - 34 años
+---
 
-#### Demografía: Es coordinadora de Comunicación e Innovación de un centro de innovación, trabaja constantemente en entornos colaborativos y usa redes como LinkedIn, Behance y busca paginas web para descubrir nuevos talentos.
+### Usuario 1 — Extremo  
+### **Elisa Montecinos — 52 años**
 
-#### Comportamientos y creencias: Cree firmemente que la creatividad y la tecnología deben unirse para generar impacto social, constantemente busca colaboradores con pensamiento estratégico y visual potente, le gusta ver exploración material, prototipos, maquetas o procesos fuera del mundo digital, pero no deja de lado lo que es visualmente atractivo pues sabe que los objetos deben venderse además de ser funcionales.
+#### **Demografía:** Arquitecta senior, dirige equipos multidisciplinarios en proyectos urbanos y corporativos. Utiliza plataformas como ArchDaily, Behance y LinkedIn para buscar talento emergente y tendencias visuales.
 
-#### Necesidades y objetivos: Necesita encontrar diseñadores que puedan traducir ideas abstractas en experiencias visuales que tengan una mirada fresca dentro del área y busca perfiles creativos con sensibilidad conceptual y capacidad de comunicación visual clara.
+#### **Comportamientos y creencias:** Cree en el diseño como herramienta de transformación espacial y social. Valora la originalidad, la claridad conceptual y la ejecución técnica impecable. Le interesa ver procesos y no solo resultados finales. Da importancia a la sensibilidad estética aplicada a espacios.
 
-### Usuario 2 - extremo
-### Rodrigo Álvarez - 46 años
+#### **Necesidades y objetivos:** Busca diseñadores capaces de aportar perspectivas frescas, híbridas entre la industria, la materialidad y la arquitectura. Necesita identificar perfiles con una visión espacial contemporánea, que puedan evolucionar hacia el interiorismo o experiencias espaciales.
 
-#### Demografía: Es gerente de marketing de una empresa del rubro financiero, encargado tambien de reclutar a nuevas personas para la empresa y busca los busca por LinkedIn o recomendaciones.
+---
 
-#### Comportamientos y creencias: Es un fiel creyente de que la marca es una herramienta clave para generar confianza y prestigio, por lo cual le da especial atención a los detalles en ese sentido, Prefiere resultados digitales, orden y claridad en la comunicación visual y valora la coherencia estética y el profesionalismo
+### Usuario 2 — Extremo  
+### **Matías Herrera — 40 años**
 
-#### Necesidades y objetivos: Le gustan los portafolios "situados" ya que le gusta ver ejemplos de la vida real, y necesita un diseñador que traduzca los valores corporativos en identidad visual sólida, busca consistencia y capacidad de adaptación a distintos formatos ya sea digitales o análogos.
+#### **Demografía:** Emprendedor tecnológico que contrata servicios de diseño para proyectos digitales y físicos. Revisa portafolios principalmente en sitios personales y redes profesionales.
 
-### Usuario 3 - Promedio
-### Camila Paredes - 29 años
+#### **Comportamientos y creencias:** Asocia el diseño con la innovación, la claridad y la funcionalidad. Prefiere interfaces limpias, navegación directa y proyectos que expliquen bien su propósito. Valora la evidencia del proceso detrás de cada propuesta.
 
-#### Demografía: Es diseñadora gráfica con especialización en branding y directora de arte de una agencia de diseño y branding.
+#### **Necesidades y objetivos:** Requiere encontrar diseñadores con pensamiento estructurado, capaces de desarrollar prototipos funcionales, objetos y experiencias que combinen estética y racionalidad, con versatilidad para adaptarse a diferentes escalas de proyecto.
 
-#### Comportamientos y creencias: Cree que un buen diseñador comunica tanto con estética como con propósito, le da importancia a la conceptualización dentras de la marca y toda la toma de decisiones hasta el resultado final, por lo que tambipen valora el uso de referentes y antecedentes en cada entregable.
+---
 
-#### Necesidades y objetivos: Necesita identificar diseñadores que puedan integrarse en equipos multidisciplinarios, manejando tanto habilidades blandas como habilidades duras en un entorno de trabajo, además busca creatividad, criterio visual y manejo técnico de herramientas básicas para cualquier diseño (no discrimina la herramienta que el diseñador use).
+## Usuario promedio:
 
-## Antecedentes
+### Usuario 3 — Promedio  
+### **Sofía Díaz — 28 años**
 
-### 1. Studio Tyrsa
+#### **Demografía:** Diseñadora interesada en colaboración creativa, tendencias visuales y procesos experimentales. Navega entre áreas como producto, gráfica, interiorismo y arte.
 
-![Referente 1](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente1.1.png)
-![Referente 1.1](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente1.png)
+#### **Comportamientos y creencias:** Cree que un buen portafolio debe comunicar quién es la persona detrás del diseño. Le interesa la estética cuidada, la claridad conceptual y la documentación de procesos. Valora nuevos referentes y proyectos que exploren materialidades.
 
-##### Es un portafolio, donde hay  una galeria de imágenes que muestra cada proyecto, adememás de estar separada por secciones, donde los proyectos, la descripción, cpntacto, etc. están por separado.
+#### **Necesidades y objetivos:** Necesita conocer diseñadores con criterio visual sólido, exploración material y capacidad de trabajar proyectos multidisciplinarios. Busca inspiración en portafolios que articulen identidad personal, profesionalismo y visión futura.
 
-#### Fuente
-<https://www.studiotyrsa.com/>
+---
 
-| Aspectos positivos | Aspectos negativos |
-| ---------------- | ---------------- |
-| Es intuitiva y dinámica, llama facilmente la atención del usuario, me gusta como están puestos los titulos    | Para mi gusto tiene demasiados efectos, a veces carga muy lento las fotos y el dado que existe dentro de la página a veces siento que estorba un poco    |
+# Antecedentes
 
+### 1. Norm Architects  
+![Referente 1](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente1.png)  
+![Referente 1.1](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente1.1.png)
 
-##### 2. Bub-bio-studios
+##### Portafolio arquitectónico minimalista que combina fotografía de alta calidad con una estructura limpia y ordenada.
 
-![Referente 2](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente2.png)
-![Referente 2.2](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente2.2.png)
-
-##### Es un portafolio que básicamente es como una grán galeria de videos, simple pero llamativa
-#### Fuente
-<https://sub-bio-studios.com.au/>
+#### Fuente  
+https://normcph.com/
 
 | Aspectos positivos | Aspectos negativos |
-| ---------------- | ---------------- |
-| Me gusta que es directo y llamativo, tiene algunos efectos que me gustan y podrían replicarse     | Le falta contexto a los proyectos, el "menú" apenas se ve arriba, al haber tantas cosas pasando igual te marea un poco"    |
+| ------------------ | ------------------ |
+| La estética es extremadamente limpia, profesional y elegante; excelente para transmitir calma y espacio. | Puede sentirse muy sobrio y quizá demasiado rígido si se busca un estilo más dinámico. |
 
-##### 3. Re-foam
+---
 
-![Referente 3](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente3.png)
-![Referente 3.3](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente3.3.png)
+### 2. Neri&Hu  
+![Referente 2](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente2.png)  
+![Referente 2.2](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente2.1.png)
 
-##### Es un portafolio en donde los proyectos tiene cada uno una sección pues se diferencias a meidida el color del centro cambia
-#### Fuente
-<https://re-foam.ru/>
+##### Portafolio con enfoque en arquitectura y diseño interior con una narrativa visual fuerte sustentada en fotografía dramática.
 
-| Aspectos positivos | Aspectos negativos |
-| ---------------- | ---------------- |
-| Estéticamente me gusta mucho, me gusta el efecto del medio que cambia a medida que bajas y eso genera una separación entre proyectos, además apretando los titulos te lleva a otro apartado    | A pesar de que me gusta el efecto del centro, personalmente no lo pondría ahí porque siento que entorpece un poco la especiencia, lo cambiaría de lugar    |
-
-##### 4. Anna Mills
-
-![Referente 4](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente4.png)
-![Referente 4.4](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente4.4.png)
-
-##### Es un oprtafolio tipo galeria de fotos con varios efectos llamativos
-#### Fuente
-<https://annamills.xyz/>
+#### Fuente  
+https://www.neriandhu.com/
 
 | Aspectos positivos | Aspectos negativos |
-| ---------------- | ---------------- |
-| Me gusta mucho el collage que hace y la galeria de fotos que utiliza para poner los trabajos     | Me gustaría que apretando lsa imagenes haya algún tipo de enunciado, minimo para saver los nombres de los proyectos o algo así    |
+| ------------------ | ------------------ |
+| Bellísima narrativa visual y coherencia estética; transmite identidad fuerte. | La navegación puede ser un poco lenta por lo pesado de las imágenes. |
 
+---
 
-##### 5. Atelier Matin
+### 3. Formafantasma  
+![Referente 3](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente3.png)  
+![Referente 3.3](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente3.1.png)
 
-![Referente 5](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente5.png)
-![Referente 5.5](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente5.5.png)
+##### Portafolio híbrido entre diseño industrial, producto y experimentación material, con organización clara por proyectos.
 
-##### Es un portafolio simple pero funcional, donde las fotos tienen efectos para hacerlo más dinámico
-#### Fuente
-<https://www.ateliermatin.com/>
-
-| Aspectos positivos | Aspectos negativos |
-| ---------------- | ---------------- |
-| Me gusta lo simple que es porque cumple su funcion y me gusta que puedes apretar las imagenes y te llevan a otra pagina con más info y más fotos tipo galería además de la sección de proyectos, me gusta mucho la disposición     | No me gusta mucho como estan puestos los textos   |
-
-
-##### 6. Ludovic Roth Studio
-
-![Referente 6](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente6.png)
-![Referente 6.6](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Referente6.6.png)
-
-##### Es un portafolio mucho más sofisticado, pero muy funcional
-#### Fuente
-<https://ludovicroth.com/>
+#### Fuente  
+https://formafantasma.com/
 
 | Aspectos positivos | Aspectos negativos |
-| ---------------- | ---------------- |
-| Me gusta mucho como te recibe la página y que si uno se posa sobre un titulo te muestra una imagen del proyecto, además me gusta mucho tambipen como muestra los proyectos, dando especificaciones útiles y varias fotos tipo galeria     | las animaciones están bien pero van un poco lentas a mi gusto y siento que retarda la navegación y quizá aprobvechar más el espacio del texto    |
+| ------------------ | ------------------ |
+| Excelente manejo de proyectos industriales; muy coherente con tu área actual. | Cierta densidad visual puede generar saturación en algunas secciones. |
 
-## Referentes
+---
+
+### 4. Frama CPH  
+![Referente 4](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente4.png)  
+![Referente 4.4](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente4.1.png)
+
+##### Portafolio/tienda de diseño interior con estética sensorial, tonos neutros y uso de fotografía atmosférica.
+
+#### Fuente  
+https://framacph.com/
+
+| Aspectos positivos | Aspectos negativos |
+| ------------------ | ------------------ |
+| Transmite emociones, materialidad y calma; excelente referente para interiorismo. | Al estar muy centrado en lifestyle, puede dejar poco espacio a la explicación técnica. |
+
+---
+
+### 5. Six N. Five  
+![Referente 5](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente5.png)  
+![Referente 5.5](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente5.1.png)
+
+##### Portafolio visualmente impactante que combina 3D, arquitectura conceptual y composiciones artísticas.
+
+#### Fuente  
+https://sixnfive.com/
+
+| Aspectos positivos | Aspectos negativos |
+| ------------------ | ------------------ |
+| Innovación visual y exploración espacial fuerte; inspira a pensar más allá del objeto. | Algunos efectos complejos pueden ralentizar la navegación. |
+
+---
+
+### 6. Norm Studio Portfolio  
+![Referente 6](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente6.png)  
+![Referente 6.6](https://raw.githubusercontent.com/youruser/yourrepo/main/img/antecedente6.1.png)
+
+##### Portfolio simple, silencioso, enfocado en luz, textura y materialidad; muestra proyectos industriales y espaciales.
+
+#### Fuente  
+https://norm.studio/
+
+| Aspectos positivos | Aspectos negativos |
+| ------------------ | ------------------ |
+| Perfecto equilibrio entre diseño industrial e interiorismo; muy alineado a tu perfil. | Puede parecer demasiado minimalista para usuarios que buscan dinamismo gráfico. |
+
+---
+
+# Referentes
 
 ### Moodboard
 
-##### Contiene elementos que me gustaron o me gustaría incluir, colores, o cosas que me llamaron la atención de algunas paginas web que visité.
-![Moodboard](https://raw.githubusercontent.com/FloSegretti/Trabajo-final/refs/heads/main/img/Moodboard1.png)
+##### Moodboard que integra tonos neutros, texturas naturales, geometrías limpias, fotografía arquitectónica y objetos de diseño que inspiran la línea estética del portafolio.
 
-
-
-
-
+![Moodboard](https://raw.githubusercontent.com/youruser/yourrepo/main/img/moodboard.png)
 
