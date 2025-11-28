@@ -1,118 +1,154 @@
-// Toggle Menu
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
-const nav = document.getElementById('nav');
+// Elementos del DOM para Navegación
+const menuToggle = document.getElementById('menuToggle');
+const sideMenu = document.getElementById('sideMenu');
+const overlay = document.getElementById('overlay');
+const closeMenuLinks = document.querySelectorAll('.side-menu a');
 
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+// Elementos del DOM para Carrusel
+const projectTrack = document.getElementById('projectTrack');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
 
-// Close menu on link click
-document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+// ==========================================
+// 1. NAVEGACIÓN (Menú Desplegable)
+// ==========================================
+function toggleMenu() {
+    menuToggle.classList.toggle('active');
+    sideMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    
+    // Control de scroll del body
+    document.body.style.overflow = sideMenu.classList.contains('active') ? 'hidden' : 'auto';
+}
+
+menuToggle.addEventListener('click', toggleMenu);
+overlay.addEventListener('click', toggleMenu);
+
+closeMenuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        // Cierra el menú al hacer clic en un link
+        if (sideMenu.classList.contains('active')) {
+            toggleMenu();
+        }
     });
 });
 
-// Scroll effect on nav
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-});
 
-// Skills animation on scroll
+// ==========================================
+// 2. CARGA DE PROYECTOS Y CARRUSEL HORIZONTAL
+// ==========================================
+
+async function loadProjects() {
+    try {
+        // Carga el archivo datos.json localmente
+        const response = await fetch('datos.json');
+        const trabajos = await response.json();
+
+        trabajos.forEach(trabajo => {
+            // Genera la estructura de tarjeta para el carrusel con el nuevo diseño
+            projectTrack.innerHTML += `
+                <a href="#proyecto-${trabajo.title.toLowerCase().replace(/\s/g, '-')}" class="project-card">
+                    <img src="${trabajo.photo}" alt="${trabajo.title}" class="project-image">
+                    <div class="project-info">
+                        <h3>${trabajo.title}</h3>
+                        <p>${trabajo.category} · ${trabajo.year}</p>
+                    </div>
+                </a>
+            `;
+        });
+        
+        // Inicializa la funcionalidad del carrusel una vez cargados los datos
+        initHorizontalScroll(projectTrack, nextBtn, prevBtn);
+
+    } catch (error) {
+        console.error("Error al cargar los datos:", error);
+    }
+}
+
+/**
+ * Lógica para la navegación y loop del carrusel horizontal.
+ */
+function initHorizontalScroll(track, nextBtn, prevBtn) {
+    if (!track || !nextBtn || !prevBtn) return;
+
+    // Obtiene el ancho de desplazamiento (ancho de tarjeta + margen)
+    const getScrollAmount = () => {
+        const firstCard = track.querySelector('.project-card');
+        if (!firstCard) return 0;
+        
+        const cardWidth = firstCard.offsetWidth;
+        const style = window.getComputedStyle(firstCard);
+        const marginRight = parseFloat(style.marginRight);
+        
+        return cardWidth + marginRight;
+    };
+
+    // BOTÓN SIGUIENTE (Loop al inicio)
+    nextBtn.addEventListener('click', () => {
+        const amount = getScrollAmount();
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        
+        if (track.scrollLeft >= maxScroll - 10) {
+            track.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            track.scrollBy({
+                left: amount,
+                behavior: 'smooth'
+            });
+        }
+    });
+
+    // BOTÓN ANTERIOR (Loop al final)
+    prevBtn.addEventListener('click', () => {
+        const amount = getScrollAmount();
+
+        if (track.scrollLeft <= 10) {
+            track.scrollTo({
+                left: track.scrollWidth,
+                behavior: 'smooth'
+            });
+        } else {
+            track.scrollBy({
+                left: -amount,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
+// ==========================================
+// 3. SCROLL REVEAL (Efecto Pulso Hotel)
+// ==========================================
+// Usamos Intersection Observer para un rendimiento óptimo en la animación de revelado
 const observerOptions = {
-    threshold: 0.5
+    root: null, // viewport
+    rootMargin: '0px',
+    threshold: 0.1 // El 10% del elemento debe ser visible
 };
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Detiene la observación después de mostrarse
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.skill-item').forEach(skill => {
-    observer.observe(skill);
-});
-
-// Portfolio data with your images
-const portfolioData = [
-    {
-        photo: 'https://i.postimg.cc/d3qS0W0g/image.png',
-        title: 'Carroza Real',
-        category: 'Diseño de Producto'
-    },
-    {
-        photo: 'https://i.postimg.cc/KY3LthHq/image.png',
-        title: 'Altar Zen',
-        category: 'Diseño de Mobiliario'
-    },
-    {
-        photo: 'https://i.postimg.cc/pLrNNqSQ/image.png',
-        title: 'Experiencia Nocturna',
-        category: 'Fotografía'
-    },
-    {
-        photo: 'https://i.postimg.cc/KYjBz9T2/image.png',
-        title: 'Monito del Monte',
-        category: 'Modelado 3D'
-    },
-    {
-        photo: 'https://i.postimg.cc/J0Y5tQnM/image.png',
-        title: 'Sistema de Transporte',
-        category: 'Ingeniería Industrial'
-    },
-    {
-        photo: 'https://i.postimg.cc/qR7rHs2s/image.png',
-        title: 'Romper el Hielo',
-        category: 'Diseño de Producto'
-    },
-    {
-        photo: 'https://i.postimg.cc/GhcFgVQy/image.png',
-        title: 'Vela Artesanal',
-        category: 'Diseño Decorativo'
-    },
-    {
-        photo: 'https://i.postimg.cc/6qtWhYSY/image.png',
-        title: 'Colección de Velas',
-        category: 'Diseño de Producto'
-    }
-];
-
-// Load portfolio
-function loadPortfolio() {
-    const portfolioGrid = document.getElementById('portfolioGrid');
-    
-    portfolioData.forEach(item => {
-        const portfolioItem = document.createElement('div');
-        portfolioItem.className = 'portfolio-item';
-        portfolioItem.innerHTML = `
-            <img src="${item.photo}" alt="${item.title}">
-            <div class="portfolio-overlay">
-                <h3>${item.title}</h3>
-                <p>${item.category}</p>
-            </div>
-        `;
-        portfolioGrid.appendChild(portfolioItem);
+function initScrollAnimation() {
+    document.querySelectorAll('.scroll-animate').forEach(element => {
+        observer.observe(element);
     });
 }
 
-loadPortfolio();
-
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+// Inicialización
+document.addEventListener('DOMContentLoaded', () => {
+    loadProjects();
+    initScrollAnimation();
+});
             });
         }
     });
