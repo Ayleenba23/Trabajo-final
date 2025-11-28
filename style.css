@@ -247,13 +247,9 @@ body {
     object-fit: cover;
 }
 
+/* SIN OVERLAY sobre el video */
 .video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(35, 144, 137, 0.75) 0%, rgba(66, 168, 161, 0.6) 50%, rgba(93, 193, 185, 0.5) 100%);
+    display: none;
 }
 
 .hero-content {
@@ -275,16 +271,16 @@ body {
     }
 }
 
-/* TIPOGRAFÍA ESPECIAL PARA EL NOMBRE */
+/* TIPOGRAFÍA LE MURMURE PARA EL NOMBRE */
 .hero-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Le Murmure', serif;
     font-size: 6rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
     margin-bottom: 15px;
     color: #ffffff;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.4);
-    font-style: italic;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    font-style: normal;
 }
 
 .hero-subtitle {
@@ -735,6 +731,28 @@ body {
     font-weight: 300;
 }
 
+/* BOTÓN "VER MÁS..." */
+.card-more {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #42a8a1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.card-more::after {
+    content: '→';
+    margin-left: 5px;
+    transition: margin-left 0.3s ease;
+}
+
+.card-more:hover::after {
+    margin-left: 10px;
+}
+
 /* Loading spinner */
 .loading-spinner {
     display: flex;
@@ -990,6 +1008,141 @@ body {
 
 .back-to-top:hover {
     opacity: 0.7;
+}
+
+/* =========================================
+   FORMULARIO DE CONTACTO
+   ========================================= */
+
+.contact-form-section {
+    margin: 60px 0;
+    padding: 50px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #202020;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: #202020;
+    border: none;
+    border-bottom: 2px solid #e0e0e0;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group input:valid,
+.form-group textarea:valid {
+    border-bottom-color: #42a8a1;
+}
+
+.form-group label {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    font-size: 1rem;
+    color: #888888;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label,
+.form-group textarea:focus + label,
+.form-group textarea:valid + label {
+    top: -10px;
+    font-size: 0.85rem;
+    color: #42a8a1;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    align-self: flex-start;
+    padding: 16px 45px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: linear-gradient(135deg, #239089 0%, #42a8a1 100%);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(66, 168, 161, 0.3);
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(66, 168, 161, 0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(-1px);
+}
+
+.form-message {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    display: none;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form-section {
+        padding: 30px 20px;
+    }
 }
 
 /* =========================================
