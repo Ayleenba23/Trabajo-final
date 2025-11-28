@@ -20,7 +20,7 @@ body {
     line-height: 1.6;
 }
 
-/* Color de Acento CORREGIDO: Turquesa/Teal (#42a8a1) */
+/* Color de Acento CORREGIDO: Turquesa/Teal */
 :root {
     --color-primary: #42a8a1; 
     --color-text-dark: #202020;
@@ -39,13 +39,27 @@ a:hover {
     color: var(--color-primary);
 }
 
-/* FIX DE VISIBILIDAD: Todas las secciones de contenido deben estar por encima y tener fondo */
-section {
-    padding: 100px 5vw;
+/* 🚨 SOLUCIÓN FINAL: Aplicar la capa y el fondo a las secciones de contenido */
+.works-section, .about-section, .contact-section {
+    padding: 100px 5vw; /* Padding general */
     position: relative;
-    z-index: 10; /* Asegura que está por encima del video */
-    background-color: var(--color-background-light); 
+    z-index: 10; /* Asegura que están por encima del video (z-index: -1) */
+    background-color: var(--color-background-light); /* Fondo sólido para cubrir el video */
 }
+
+/* Secciones específicas que necesitan un fondo distinto o ajustes */
+.works-section {
+    padding: 100px 0;
+    background-color: var(--color-background-subtle); 
+    border-top: 1px solid var(--color-border-subtle);
+    overflow: hidden;
+}
+
+.about-section, .contact-section {
+    /* Ya tienen background-color: var(--color-background-light) de la regla superior */
+    padding-bottom: 50px; /* Ajuste para que el footer tenga mejor espaciado */
+}
+
 
 /* =========================================
    CABECERA FIJA Y MENÚ
@@ -60,32 +74,22 @@ section {
     align-items: center;
     padding: 30px 5vw;
     z-index: 1000;
-    background: transparent;
+    color: var(--color-background-light); /* Aseguramos que los links de la cabecera sean blancos */
 }
 
-.portfolio-tag {
-    font-size: 1.1rem;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    color: var(--color-text-dark);
+.main-header a, .main-header span, .menu-toggle span {
+    color: var(--color-background-light);
+    background-color: transparent;
 }
-
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.2rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: var(--color-text-dark);
-    transition: color 0.3s ease;
+.menu-toggle {
+    border-color: var(--color-background-light);
 }
 
 /* (El resto de estilos de menú se mantienen igual) */
 
 
 /* =========================================
-   SECCIÓN HERO Y VIDEO (SOLUCIÓN DE VISIBILIDAD)
+   SECCIÓN HERO Y VIDEO (Fondo Fijo)
    ========================================= */
 
 /* FIX ESTRUCTURAL: Video fijo en el fondo */
@@ -103,7 +107,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* BAJA EXPOSICIÓN: Más oscuro (0.25) */
+    /* BAJA EXPOSICIÓN */
     filter: grayscale(100%) brightness(0.25); 
 }
 
@@ -118,7 +122,8 @@ section {
     text-align: center;
     overflow: hidden;
     padding: 0;
-    z-index: 1; /* Necesita un z-index para contener el hero-content */
+    z-index: 1; /* Transparente, permite ver el video */
+    background: transparent; /* Asegura la transparencia */
 }
 
 .hero-content {
@@ -130,36 +135,34 @@ section {
 
 /* ESTILOS DE TÍTULO SOLICITADOS */
 .hero-title {
-    font-size: 8vw; /* Más grande */
+    font-size: 8vw; 
     font-weight: 800;
     letter-spacing: -3px;
     margin-bottom: 0.1em; 
 }
 
 .hero-subtitle {
-    font-size: 2.5vw; /* Más pequeño */
+    font-size: 2.5vw; 
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.85); /* Un poco más tenue */
+    color: rgba(255, 255, 255, 0.85); 
     letter-spacing: 1px;
-    margin-top: -10px; /* Ajuste fino del espacio */
+    margin-top: -10px; 
 }
 
 
 /* =========================================
-   SECCIÓN TRABAJOS (Asegurar Fondo)
+   ANIMACIÓN DE SCROLL
    ========================================= */
-.works-section {
-    padding: 100px 0;
-    background-color: var(--color-background-subtle); /* Fondo sutil para que cubra el video */
-    border-top: 1px solid var(--color-border-subtle);
-    overflow: hidden;
-}
-
-/* (El resto de estilos se mantienen igual y funcionan con el nuevo color) */
+/* (Se mantiene igual) */
 
 
 /* =========================================
-   MEDIA QUERIES
+   SECCIÓN TRABAJOS (Carrusel Horizontal Único)
+   ========================================= */
+/* (Los estilos específicos del carrusel se mantienen) */
+
+/* =========================================
+   MEDIA QUERIES (Asegurar responsividad de títulos)
    ========================================= */
 @media (max-width: 900px) {
     .hero-title {
@@ -167,6 +170,9 @@ section {
     }
     .hero-subtitle {
         font-size: 3.5vw;
+    }
+    .main-header .logo {
+         color: var(--color-background-light); /* En móvil también */
     }
 }
 
@@ -191,5 +197,9 @@ section {
     }
     .hero-subtitle {
         font-size: 4.5vw;
+    }
+    
+    .works-section, .about-section, .contact-section {
+        padding: 60px 5vw; /* Menos padding en móvil */
     }
 }
