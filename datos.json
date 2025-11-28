@@ -36,21 +36,21 @@
     "year": "2021"
   },
   {
-    "title": "Velas Osito Chococraft",
-    "category": "Diseño Gráfico · Packaging",
+    "title": "Velas Osito Cansadito",
+    "category": "Diseño de Producto · Procesos de Producción",
     "photo": "img/velas.webp",
-    "year": "2024"
-  },
-  {
-    "title": "Mesa de Diseño Paramétrico",
-    "category": "Diseño Industrial · Fabricación Digital",
-    "photo": "img/mesa.webp",
     "year": "2023"
   },
   {
-    "title": "Alma Ilustraciones",
-    "category": "Diseño Gráfico · Branding e Ilustración",
-    "photo": "img/alma.webp",
+    "title": "Mesa Transportadora T-37",
+    "category": "Diseño Industrial · Práctica Profesional",
+    "photo": "img/mesa.webp",
     "year": "2024"
+  },
+  {
+    "title": "Estructura Alma",
+    "category": "Diseño Industrial · Práctica de Servicio",
+    "photo": "img/alma.webp",
+    "year": "2025"
   }
 ]
