@@ -1,256 +1,407 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayleen Bahamóndez · Diseñadora Integral</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+// ==========================================
+// SISTEMA DE TRADUCCIÓN MEJORADO
+// ==========================================
+
+const translations = {
+    es: {
+        'nav-home': 'Inicio',
+        'nav-about': 'Sobre mí',
+        'nav-work': 'Proyectos',
+        'nav-contact': 'Contacto',
+        'hero-subtitle': 'Diseñadora Integral UC',
+        'btn-projects': 'Ver proyectos',
+        'about-title': 'Sobre mí',
+        'about-text1': 'Soy estudiante de Diseño Integral de la Pontificia Universidad Católica de Chile, apasionada por el diseño interdisciplinario y la innovación en procesos productivos.',
+        'about-text2': 'Mi trabajo explora desde el diseño de producto hasta la experimentación con materiales y fabricación digital, integrando tecnología en proyectos creativos.',
+        'experience-title': 'Experiencia Laboral',
+        'education-title': 'Estudios',
+        'skills-title': 'Manejo de Software',
+        'exp1-title': 'Práctica Profesional',
+        'exp2-title': 'Práctica de Servicio',
+        'edu1-title': 'Diseño Integral',
+        'edu1-school': 'Pontificia Universidad Católica de Chile',
+        'works-title': 'Proyectos Destacados',
+        'contact-title': 'Conversemos',
+        'social-title': 'Redes',
+        'footer-credits': 'Diseñado y programado por mí',
+        'back-top': 'Volver arriba →'
+    },
+    en: {
+        'nav-home': 'Home',
+        'nav-about': 'About',
+        'nav-work': 'Works',
+        'nav-contact': 'Contact',
+        'hero-subtitle': 'Integral Designer UC',
+        'btn-projects': 'View projects',
+        'about-title': 'About me',
+        'about-text1': "I'm an Integral Design student at Pontificia Universidad Católica de Chile, passionate about interdisciplinary design and innovation in production processes.",
+        'about-text2': 'My work explores from product design to experimentation with materials and digital fabrication, integrating technology in creative projects.',
+        'experience-title': 'Work Experience',
+        'education-title': 'Education',
+        'skills-title': 'Software Skills',
+        'exp1-title': 'Professional Internship',
+        'exp2-title': 'Service Internship',
+        'edu1-title': 'Integral Design',
+        'edu1-school': 'Pontifical Catholic University of Chile',
+        'works-title': 'Featured Projects',
+        'contact-title': "Let's talk",
+        'social-title': 'Social',
+        'footer-credits': 'Designed & Coded by me',
+        'back-top': 'Back to top →'
+    }
+};
+
+let currentLang = 'es';
+
+function changeLanguage(lang) {
+    currentLang = lang;
     
-    <!-- LOGO PORTAFOLIO (Esquina superior izquierda) -->
-    <a href="#home" class="logo-portafolio" data-es="Portafolio" data-en="Portfolio">Portafolio</a>
+    // Actualizar botones activos
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    
+    // Actualizar todos los elementos con data-translate
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+}
 
-    <!-- SELECTOR DE IDIOMA -->
-    <div class="language-selector">
-        <button class="lang-btn active" data-lang="es">ES</button>
-        <span class="lang-separator">/</span>
-        <button class="lang-btn" data-lang="en">EN</button>
-    </div>
+// Event listeners para botones de idioma
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        changeLanguage(btn.dataset.lang);
+    });
+});
 
-    <!-- MENÚ HAMBURGUESA -->
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+// ==========================================
+// MENÚ HAMBURGUESA
+// ==========================================
 
-    <!-- MENÚ LATERAL -->
-    <nav class="side-menu" id="sideMenu">
-        <ul class="main-menu">
-            <li><a href="#home" class="main-link" data-es="Inicio" data-en="Home">Inicio</a></li>
-            <li><a href="#about" class="main-link" data-es="Sobre mí" data-en="About">Sobre mí</a></li>
-            <li><a href="#work" class="main-link" data-es="Proyectos" data-en="Works">Proyectos</a></li>
-            <li><a href="#contact" class="main-link" data-es="Contacto" data-en="Contact">Contacto</a></li>
-        </ul>
-    </nav>
+const menuToggle = document.getElementById('menuToggle');
+const sideMenu = document.getElementById('sideMenu');
+const overlay = document.getElementById('overlay');
+const menuLinks = document.querySelectorAll('.side-menu a');
 
-    <div class="overlay" id="overlay"></div>
+function toggleMenu() {
+    menuToggle.classList.toggle('active');
+    sideMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = sideMenu.classList.contains('active') ? 'hidden' : 'auto';
+}
 
-    <!-- SECCIÓN HERO CON VIDEO -->
-    <section class="hero" id="home">
-        <!-- Video de fondo -->
-        <div class="hero-video">
-            <video autoplay muted loop playsinline id="heroVideo">
-                <source src="videos/glaze.webm" type="video/webm">
-                <source src="videos/glaze.mp4" type="video/mp4">
-                Tu navegador no soporta videos HTML5.
-            </video>
-            <div class="video-overlay"></div>
-        </div>
+if (menuToggle && sideMenu && overlay) {
+    menuToggle.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    
+    menuLinks.forEach(link => {
+        link.addEventListener('click', toggleMenu);
+    });
+}
 
-        <!-- Contenido Hero -->
-        <div class="hero-content">
-            <h1 class="hero-title">Ayleen Bahamondez</h1>
-            <p class="hero-subtitle" data-es="Diseñadora Integral UC" data-en="Integral Designer UC">Diseñadora Integral UC</p>
-            <a href="#work" class="btn-projects" data-es="Ver proyectos" data-en="View projects">Ver proyectos</a>
-        </div>
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sideMenu && sideMenu.classList.contains('active')) {
+        toggleMenu();
+    }
+});
 
-        <!-- Scroll indicator -->
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-        </div>
-    </section>
+// ==========================================
+// SMOOTH SCROLL
+// ==========================================
 
-    <!-- SECCIÓN ABOUT -->
-    <section id="about" class="about-section">
-        <div class="about-container">
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#' || targetId === '#home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+        
+        const target = document.querySelector(targetId);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// ==========================================
+// ANIMACIONES DE SCROLL
+// ==========================================
+
+const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observar elementos con scroll-animate
+const observeAnimations = () => {
+    document.querySelectorAll('.scroll-animate').forEach(el => {
+        observer.observe(el);
+    });
+};
+
+// Ejecutar después de cargar la página
+setTimeout(observeAnimations, 100);
+
+// ==========================================
+// CARGAR PROYECTOS DESDE DATOS.JSON
+// ==========================================
+
+const carouselTrack = document.getElementById('carouselTrack');
+
+async function cargarProyectos() {
+    if (!carouselTrack) {
+        console.error('Carousel track no encontrado');
+        return;
+    }
+
+    try {
+        const response = await fetch('datos.json');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const proyectos = await response.json();
+        
+        // Limpiar spinner
+        carouselTrack.innerHTML = '';
+        
+        if (!Array.isArray(proyectos) || proyectos.length === 0) {
+            carouselTrack.innerHTML = '<p style="color: #666; text-align: center; width: 100%;">No hay proyectos disponibles.</p>';
+            return;
+        }
+        
+        proyectos.forEach((proyecto, index) => {
+            // Sanitizar datos
+            const title = String(proyecto.title || 'Sin título').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const category = String(proyecto.category || 'Sin categoría').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const year = String(proyecto.year || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const photo = String(proyecto.photo || 'img/placeholder.webp');
             
-            <!-- COLUMNA IZQUIERDA: Texto -->
-            <div class="about-text-column">
-                <h2 class="about-title scroll-animate" data-es="Sobre mí" data-en="About me">Sobre mí</h2>
-                
-                <div class="about-content scroll-animate">
-                    <p class="about-bio" data-es="Soy estudiante de Diseño Integral de la Pontificia Universidad Católica de Chile, apasionada por el diseño interdisciplinario y la innovación en procesos productivos." data-en="I'm an Integral Design student at Pontificia Universidad Católica de Chile, passionate about interdisciplinary design and innovation in production processes.">
-                        Soy estudiante de Diseño Integral de la <strong>Pontificia Universidad Católica de Chile</strong>, apasionada por el diseño interdisciplinario y la innovación en procesos productivos.
-                    </p>
-                    <p class="about-bio" data-es="Mi trabajo explora desde el diseño de producto hasta la experimentación con materiales y fabricación digital, integrando tecnología en proyectos creativos." data-en="My work explores from product design to experimentation with materials and digital fabrication, integrating technology in creative projects.">
-                        Mi trabajo explora desde el diseño de producto hasta la experimentación con materiales y fabricación digital, integrando tecnología en proyectos creativos.
-                    </p>
-
-                    <!-- FOTO CIRCULAR (más pequeña, aquí abajo) -->
-                    <div class="about-photo-small scroll-animate">
-                        <img src="img/yo.jpg" alt="Ayleen Bahamóndez">
-                    </div>
-                </div>
-            </div>
-
-            <!-- COLUMNA DERECHA: Resume -->
-            <div class="about-resume">
-                
-                <!-- EXPERIENCIA -->
-                <div class="resume-block scroll-animate">
-                    <h4 class="resume-title" data-es="Experiencia Laboral" data-en="Work Experience">Experiencia Laboral</h4>
-                    
-                    <div class="resume-item scroll-animate">
-                        <span class="year">2024</span>
-                        <div class="info">
-                            <strong data-es="Práctica Profesional" data-en="Professional Internship">Práctica Profesional</strong>
-                            <p><a href="https://fabrinox.cl/" target="_blank">Fabrinox</a></p>
-                        </div>
-                    </div>
-
-                    <div class="resume-item scroll-animate">
-                        <span class="year">2025</span>
-                        <div class="info">
-                            <strong data-es="Práctica de Servicio" data-en="Service Internship">Práctica de Servicio</strong>
-                            <p><a href="https://www.fundacionalmachile.com/" target="_blank">Fundación Alma Chile</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ESTUDIOS -->
-                <div class="resume-block scroll-animate">
-                    <h4 class="resume-title" data-es="Estudios" data-en="Education">Estudios</h4>
-                    
-                    <div class="resume-item scroll-animate">
-                        <span class="year">2021 - 2026</span>
-                        <div class="info">
-                            <strong data-es="Diseño Integral" data-en="Integral Design">Diseño Integral</strong>
-                            <p data-es="Pontificia Universidad Católica de Chile" data-en="Pontifical Catholic University of Chile">Pontificia Universidad Católica de Chile</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- HABILIDADES -->
-                <div class="resume-block scroll-animate">
-                    <h4 class="resume-title" data-es="Manejo de Software" data-en="Software Skills">Manejo de Software</h4>
-                    
-                    <div class="skill-bar scroll-animate">
-                        <span class="skill-name">Fusion 360</span>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="width: 100%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-bar scroll-animate">
-                        <span class="skill-name">Inventor</span>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="width: 80%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-bar scroll-animate">
-                        <span class="skill-name">Illustrator</span>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="width: 50%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-bar scroll-animate">
-                        <span class="skill-name">Photoshop</span>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="width: 40%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN WORKS (CARRUSEL) -->
-    <section id="work" class="works-section">
-        <div class="works-container">
+            const cardWrapper = document.createElement('div');
+            cardWrapper.className = 'card-wrapper scroll-animate';
             
-            <div class="works-header scroll-animate">
-                <h2 class="section-title" data-es="Proyectos Destacados" data-en="Featured Projects">Proyectos Destacados</h2>
-                <div class="carousel-controls">
-                    <button id="prevBtn" class="carousel-btn" aria-label="Anterior">←</button>
-                    <button id="nextBtn" class="carousel-btn" aria-label="Siguiente">→</button>
+            cardWrapper.innerHTML = `
+                <div class="project-card" tabindex="0" role="article" aria-label="${title}">
+                    <div class="card-image">
+                        <img src="${photo}" alt="${title}" loading="lazy" onerror="this.src='img/placeholder.webp'">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-category">${category}</span>
+                        <h3 class="card-title">${title}</h3>
+                        <span class="card-year">${year}</span>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Se cargará dinámicamente desde datos.json -->
-            <div class="carousel-track" id="carouselTrack"></div>
-        </div>
-    </section>
-
-    <!-- CINTA MARQUEE -->
-    <div class="marquee-container">
-        <div class="marquee-content">
-            <span>DISEÑO DE PRODUCTO &nbsp;•&nbsp; FABRICACIÓN DIGITAL &nbsp;•&nbsp; INNOVACIÓN &nbsp;•&nbsp; MODELADO 3D &nbsp;•&nbsp; </span>
-            <span>DISEÑO DE PRODUCTO &nbsp;•&nbsp; FABRICACIÓN DIGITAL &nbsp;•&nbsp; INNOVACIÓN &nbsp;•&nbsp; MODELADO 3D &nbsp;•&nbsp; </span>
-        </div>
-    </div>
-
-    <!-- SECCIÓN CONTACTO -->
-    <section id="contact" class="contact-section">
-        <div class="contact-container">
+            `;
             
-            <div class="contact-main-content">
+            carouselTrack.appendChild(cardWrapper);
+        });
+
+        // Observar las nuevas tarjetas
+        setTimeout(() => {
+            document.querySelectorAll('.card-wrapper').forEach(card => {
+                observer.observe(card);
+            });
+        }, 100);
+        
+        console.log(`✅ ${proyectos.length} proyectos cargados correctamente`);
+        
+    } catch (error) {
+        console.error('❌ Error al cargar proyectos:', error);
+        if (carouselTrack) {
+            carouselTrack.innerHTML = `
+                <div style="text-align: center; width: 100%; padding: 40px; color: #666;">
+                    <p>⚠️ No se pudieron cargar los proyectos.</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Verifica que el archivo <code>datos.json</code> existe.</p>
+                </div>
+            `;
+        }
+    }
+}
+
+// Cargar proyectos cuando el DOM esté listo
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', cargarProyectos);
+} else {
+    cargarProyectos();
+}
+
+// ==========================================
+// CARRUSEL - NAVEGACIÓN CIRCULAR
+// ==========================================
+
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+if (carouselTrack && prevBtn && nextBtn) {
+    
+    const getScrollAmount = () => {
+        const firstCard = carouselTrack.querySelector('.card-wrapper');
+        return firstCard ? firstCard.offsetWidth + 35 : 300;
+    };
+
+    nextBtn.addEventListener('click', () => {
+        const amount = getScrollAmount();
+        const maxScroll = carouselTrack.scrollWidth - carouselTrack.clientWidth;
+        
+        if (carouselTrack.scrollLeft >= maxScroll - 10) {
+            carouselTrack.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            carouselTrack.scrollBy({ left: amount, behavior: 'smooth' });
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        const amount = getScrollAmount();
+        
+        if (carouselTrack.scrollLeft <= 10) {
+            carouselTrack.scrollTo({ left: carouselTrack.scrollWidth, behavior: 'smooth' });
+        } else {
+            carouselTrack.scrollBy({ left: -amount, behavior: 'smooth' });
+        }
+    });
+}
+
+// ==========================================
+// RELOJ EN TIEMPO REAL
+// ==========================================
+
+function updateClock() {
+    const clockElement = document.getElementById('clock');
+    if (!clockElement) return;
+    
+    const now = new Date();
+    const options = { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit',
+        hour12: true,
+        timeZone: 'America/Santiago'
+    };
+    
+    clockElement.textContent = now.toLocaleTimeString('es-CL', options);
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+// ==========================================
+// PARALLAX SUAVE EN HERO
+// ==========================================
+
+let ticking = false;
+
+function handleScroll() {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            
+            if (heroContent && scrolled < window.innerHeight) {
+                const opacity = Math.max(0, 1 - (scrolled / 600));
+                const translateY = scrolled * 0.4;
                 
-                <!-- COLUMNA IZQUIERDA -->
-                <div class="contact-left scroll-animate">
-                    <div class="big-arrow-container">
-                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 4V20M12 20L18 14M12 20L6 14" stroke="#42a8a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h2 class="contact-big-title" data-es="Conversemos" data-en="Let's talk">Conversemos</h2>
-                </div>
-                
-                <!-- COLUMNA DERECHA -->
-                <div class="contact-right scroll-animate">
-                    
-                    <div class="contact-details-top">
-                        <div class="contact-block">
-                            <h4 class="block-label">Email</h4>
-                            <a href="mailto:ayleen.bahamondez@uc.cl" class="contact-email-link">
-                                ayleen.bahamondez@uc.cl
-                                <span class="arrow-icon">↗</span>
-                            </a>
-                        </div>
+                heroContent.style.transform = `translateY(${translateY}px)`;
+                heroContent.style.opacity = opacity;
+            }
+            
+            ticking = false;
+        });
+        
+        ticking = true;
+    }
+}
 
-                        <div class="contact-block">
-                            <h4 class="block-label" data-es="Redes" data-en="Social">Redes</h4>
-                            <ul class="social-list">
-                                <li><a href="https://www.linkedin.com/in/ayleen-bahamondez" target="_blank">LinkedIn</a></li>
-                                <li><a href="https://www.behance.net/ayleenbahamondez" target="_blank">Behance</a></li>
-                                <li><a href="https://www.instagram.com/ayleenbahamondez" target="_blank">Instagram</a></li>
-                            </ul>
-                        </div>
-                    </div>
+window.addEventListener('scroll', handleScroll, { passive: true });
 
-                    <div class="meta-info">
-                        <div class="status-dot"></div>
-                        <span class="location">SANTIAGO, CL</span>
-                        <span id="clock" class="clock">00:00:00 AM</span>
-                    </div>
+// ==========================================
+// OPTIMIZACIÓN DE VIDEO
+// ==========================================
 
-                </div>
-            </div>
+const heroVideo = document.getElementById('heroVideo');
 
-            <!-- FOOTER -->
-            <footer class="contact-footer scroll-animate">
-                <div class="footer-left">
-                    <p>© 2025 Ayleen Bahamóndez</p>
-                    <p class="credits" data-es="Diseñado y programado por mí" data-en="Designed & Coded by me">Diseñado y programado por mí</p>
-                </div>
-                <div class="footer-right">
-                    <p>Santiago, Chile</p>
-                    <a href="#home" class="back-to-top" data-es="Volver arriba →" data-en="Back to top →">Volver arriba →</a>
-                </div>
-            </footer>
+if (heroVideo) {
+    // Pausar video cuando no está visible
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                heroVideo.play().catch(e => console.log('Video autoplay prevented:', e));
+            } else {
+                heroVideo.pause();
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    videoObserver.observe(heroVideo);
+    
+    // Intentar reproducir video
+    heroVideo.play().catch(e => {
+        console.log('Video autoplay prevented, waiting for user interaction:', e);
+    });
+}
 
-        </div>
-    </section>
+// ==========================================
+// SEGURIDAD: SANITIZACIÓN DE CONTENIDO
+// ==========================================
 
-    <script src="script.js"></script>
-</body>
-</html>
+function sanitizeHTML(str) {
+    const temp = document.createElement('div');
+    temp.textContent = str;
+    return temp.innerHTML;
+}
+
+// ==========================================
+// MENSAJE EN CONSOLA
+// ==========================================
+
+console.log(
+    '%c¡Hola! 👋',
+    'font-size: 28px; font-weight: bold; color: #42a8a1; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);'
+);
+console.log(
+    '%cDiseñé y programé este sitio desde cero.\n¿Te gusta el código? Hablemos: ayleen.bahamondez@uc.cl',
+    'font-size: 14px; color: #666; line-height: 1.6;'
+);
+
+// ==========================================
+// PERFORMANCE: LAZY LOADING MEJORADO
+// ==========================================
+
+if ('loading' in HTMLImageElement.prototype) {
+    // El navegador soporta loading="lazy" nativamente
+    console.log('✅ Lazy loading nativo soportado');
+} else {
+    // Fallback para navegadores antiguos
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+        img.src = img.src;
+    });
+}
+
+// ==========================================
+// ERROR HANDLING GLOBAL
+// ==========================================
+
+window.addEventListener('error', (e) => {
+    console.error('Error capturado:', e.error);
+}, true);
+
+// ==========================================
+// INICIALIZACIÓN COMPLETA
+// ==========================================
+
+console.log('🚀 Portafolio Ayleen Bahamóndez inicializado correctamente');
