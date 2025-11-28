@@ -1,0 +1,56 @@
+[
+  {
+    "title": "ChocoCraft Station",
+    "category": "Diseño Industrial · Procesos de Producción",
+    "photo": "img/chococraft.webp",
+    "year": "2024"
+  },
+  {
+    "title": "Un Recuerdo Eterno",
+    "category": "Diseño 3D · Fotogrametría y Modelado 3D",
+    "photo": "img/recuerdo.webp",
+    "year": "2022"
+  },
+  {
+    "title": "Carruaje Fantasía",
+    "category": "Diseño 3D · Modelado 3D y Corte Láser",
+    "photo": "img/carruaje.webp",
+    "year": "2024"
+  },
+  {
+    "title": "Guardianes Nocturnos",
+    "category": "Diseño de Producto · Biológicamente integrado",
+    "photo": "img/guardianes.webp",
+    "year": "2025"
+  },
+  {
+    "title": "Mocktail – Romper el Hielo",
+    "category": "Diseño de Producto · Taller Producto",
+    "photo": "img/mocktail.webp",
+    "year": "2023"
+  },
+  {
+    "title": "Cromalux – Luminaria",
+    "category": "Diseño de Producto · Iluminación",
+    "photo": "img/cromalux.webp",
+    "year": "2021"
+  },
+  {
+    "title": "Velas Osito Chococraft",
+    "category": "Diseño Gráfico · Packaging",
+    "photo": "img/velas.webp",
+    "year": "2024"
+  },
+  {
+    "title": "Mesa de Diseño Paramétrico",
+    "category": "Diseño Industrial · Fabricación Digital",
+    "photo": "img/mesa.webp",
+    "year": "2023"
+  },
+  {
+    "title": "Alma Ilustraciones",
+    "category": "Diseño Gráfico · Branding e Ilustración",
+    "photo": "img/alma.webp",
+    "year": "2024"
+  }
+]
