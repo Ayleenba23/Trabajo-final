@@ -1,5 +1,5 @@
 // ==========================================
-// SISTEMA DE TRADUCCIÓN MEJORADO
+// SISTEMA DE TRADUCCIÓN
 // ==========================================
 
 const translations = {
@@ -23,6 +23,10 @@ const translations = {
         'works-title': 'Proyectos Destacados',
         'contact-title': 'Conversemos',
         'social-title': 'Redes',
+        'form-title': 'Envíame un mensaje',
+        'form-name': 'Nombre',
+        'form-message': 'Mensaje',
+        'form-send': 'Enviar mensaje',
         'footer-credits': 'Diseñado y programado por mí',
         'back-top': 'Volver arriba →'
     },
@@ -46,6 +50,10 @@ const translations = {
         'works-title': 'Featured Projects',
         'contact-title': "Let's talk",
         'social-title': 'Social',
+        'form-title': 'Send me a message',
+        'form-name': 'Name',
+        'form-message': 'Message',
+        'form-send': 'Send message',
         'footer-credits': 'Designed & Coded by me',
         'back-top': 'Back to top →'
     }
@@ -56,21 +64,22 @@ let currentLang = 'es';
 function changeLanguage(lang) {
     currentLang = lang;
     
-    // Actualizar botones activos
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
     
-    // Actualizar todos los elementos con data-translate
     document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
         }
     });
 }
 
-// Event listeners para botones de idioma
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         changeLanguage(btn.dataset.lang);
@@ -146,21 +155,30 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observar elementos con scroll-animate
 const observeAnimations = () => {
     document.querySelectorAll('.scroll-animate').forEach(el => {
         observer.observe(el);
     });
 };
 
-// Ejecutar después de cargar la página
 setTimeout(observeAnimations, 100);
 
 // ==========================================
-// CARGAR PROYECTOS DESDE DATOS.JSON
+// CARGAR PROYECTOS DESDE API JSON
 // ==========================================
 
 const carouselTrack = document.getElementById('carouselTrack');
+const API_URL = 'https://api.myjson.online/v1/records/0b88c704-1bd9-4f65-b520-915b793737f2';
+
+// Función para crear slug del título
+function createSlug(title) {
+    return title
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+}
 
 async function cargarProyectos() {
     if (!carouselTrack) {
@@ -169,15 +187,15 @@ async function cargarProyectos() {
     }
 
     try {
-        const response = await fetch('datos.json');
+        const response = await fetch(API_URL);
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        const proyectos = await response.json();
+        const data = await response.json();
+        const proyectos = data.data || data;
         
-        // Limpiar spinner
         carouselTrack.innerHTML = '';
         
         if (!Array.isArray(proyectos) || proyectos.length === 0) {
@@ -185,18 +203,18 @@ async function cargarProyectos() {
             return;
         }
         
-        proyectos.forEach((proyecto, index) => {
-            // Sanitizar datos
-            const title = String(proyecto.title || 'Sin título').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            const category = String(proyecto.category || 'Sin categoría').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            const year = String(proyecto.year || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        proyectos.forEach((proyecto) => {
+            const title = String(proyecto.title || 'Sin título');
+            const category = String(proyecto.category || 'Sin categoría');
+            const year = String(proyecto.year || '');
             const photo = String(proyecto.photo || 'img/placeholder.webp');
+            const slug = createSlug(title);
             
             const cardWrapper = document.createElement('div');
             cardWrapper.className = 'card-wrapper scroll-animate';
             
             cardWrapper.innerHTML = `
-                <div class="project-card" tabindex="0" role="article" aria-label="${title}">
+                <a href="proyecto-${slug}.html" class="project-card" tabindex="0" role="article" aria-label="${title}">
                     <div class="card-image">
                         <img src="${photo}" alt="${title}" loading="lazy" onerror="this.src='img/placeholder.webp'">
                     </div>
@@ -204,14 +222,14 @@ async function cargarProyectos() {
                         <span class="card-category">${category}</span>
                         <h3 class="card-title">${title}</h3>
                         <span class="card-year">${year}</span>
+                        <span class="card-more">Ver más...</span>
                     </div>
-                </div>
+                </a>
             `;
             
             carouselTrack.appendChild(cardWrapper);
         });
 
-        // Observar las nuevas tarjetas
         setTimeout(() => {
             document.querySelectorAll('.card-wrapper').forEach(card => {
                 observer.observe(card);
@@ -226,14 +244,13 @@ async function cargarProyectos() {
             carouselTrack.innerHTML = `
                 <div style="text-align: center; width: 100%; padding: 40px; color: #666;">
                     <p>⚠️ No se pudieron cargar los proyectos.</p>
-                    <p style="font-size: 0.9rem; margin-top: 10px;">Verifica que el archivo <code>datos.json</code> existe.</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Error: ${error.message}</p>
                 </div>
             `;
         }
     }
 }
 
-// Cargar proyectos cuando el DOM esté listo
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', cargarProyectos);
 } else {
@@ -241,7 +258,7 @@ if (document.readyState === 'loading') {
 }
 
 // ==========================================
-// CARRUSEL - NAVEGACIÓN CIRCULAR
+// CARRUSEL - NAVEGACIÓN
 // ==========================================
 
 const prevBtn = document.getElementById('prevBtn');
@@ -272,6 +289,56 @@ if (carouselTrack && prevBtn && nextBtn) {
             carouselTrack.scrollTo({ left: carouselTrack.scrollWidth, behavior: 'smooth' });
         } else {
             carouselTrack.scrollBy({ left: -amount, behavior: 'smooth' });
+        }
+    });
+}
+
+// ==========================================
+// FORMULARIO DE CONTACTO
+// ==========================================
+
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(contactForm);
+        const data = {
+            nombre: formData.get('nombre'),
+            email: formData.get('email'),
+            mensaje: formData.get('mensaje')
+        };
+        
+        // Usando FormSubmit.co (servicio gratuito)
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/ayleenbahamondezlatorre@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                formMessage.textContent = '✓ Mensaje enviado correctamente. Te contactaré pronto!';
+                formMessage.className = 'form-message success';
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            } else {
+                throw new Error('Error al enviar');
+            }
+            
+        } catch (error) {
+            formMessage.textContent = '✗ Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o escríbeme directamente al email.';
+            formMessage.className = 'form-message error';
         }
     });
 }
@@ -335,7 +402,6 @@ window.addEventListener('scroll', handleScroll, { passive: true });
 const heroVideo = document.getElementById('heroVideo');
 
 if (heroVideo) {
-    // Pausar video cuando no está visible
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -348,20 +414,9 @@ if (heroVideo) {
     
     videoObserver.observe(heroVideo);
     
-    // Intentar reproducir video
     heroVideo.play().catch(e => {
         console.log('Video autoplay prevented, waiting for user interaction:', e);
     });
-}
-
-// ==========================================
-// SEGURIDAD: SANITIZACIÓN DE CONTENIDO
-// ==========================================
-
-function sanitizeHTML(str) {
-    const temp = document.createElement('div');
-    temp.textContent = str;
-    return temp.innerHTML;
 }
 
 // ==========================================
@@ -373,35 +428,8 @@ console.log(
     'font-size: 28px; font-weight: bold; color: #42a8a1; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);'
 );
 console.log(
-    '%cDiseñé y programé este sitio desde cero.\n¿Te gusta el código? Hablemos: ayleen.bahamondez@uc.cl',
+    '%cDiseñé y programé este sitio desde cero.\n¿Te gusta el código? Hablemos: ayleenbahamondezlatorre@gmail.com',
     'font-size: 14px; color: #666; line-height: 1.6;'
 );
-
-// ==========================================
-// PERFORMANCE: LAZY LOADING MEJORADO
-// ==========================================
-
-if ('loading' in HTMLImageElement.prototype) {
-    // El navegador soporta loading="lazy" nativamente
-    console.log('✅ Lazy loading nativo soportado');
-} else {
-    // Fallback para navegadores antiguos
-    const images = document.querySelectorAll('img[loading="lazy"]');
-    images.forEach(img => {
-        img.src = img.src;
-    });
-}
-
-// ==========================================
-// ERROR HANDLING GLOBAL
-// ==========================================
-
-window.addEventListener('error', (e) => {
-    console.error('Error capturado:', e.error);
-}, true);
-
-// ==========================================
-// INICIALIZACIÓN COMPLETA
-// ==========================================
 
 console.log('🚀 Portafolio Ayleen Bahamóndez inicializado correctamente');
