@@ -1,121 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayleen Bahamóndez · Diseñadora Integral</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navegación -->
-    <nav id="nav">
-        <a href="#" class="logo">Ayleen Bahamóndez</a>
-        <button class="nav-toggle" id="navToggle">
+    
+    <header class="main-header">
+        <a href="#home" class="logo">Ayleen Bahamóndez</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
             <span></span>
             <span></span>
             <span></span>
         </button>
+    </header>
+
+    <div id="overlay" class="overlay"></div>
+
+    <nav class="side-menu" id="sideMenu">
+        <ul class="main-menu">
+            <li><a href="#home" class="main-link">01. Home</a></li>
+            <li><a href="#works" class="main-link">02. Proyectos</a></li>
+            <li><a href="#about" class="main-link">03. Sobre Mí</a></li>
+            <li><a href="#contact" class="main-link">04. Contacto</a></li>
+        </ul>
+        <div class="menu-meta">
+            <p>Diseño Integral</p>
+            <p>Santiago, CL</p>
+        </div>
     </nav>
 
-    <div class="nav-menu" id="navMenu">
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#portafolio">Portafolio</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </div>
-
-    <!-- Hero -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h1>Diseñadora Integral</h1>
-            <p>Arte · Diseño · Innovación</p>
-            <div class="cta-buttons">
-                <a href="mailto:ayleen.bahamndez@uc.cl" class="btn btn-primary">Trabajemos juntos</a>
-                <a href="https://www.behance.net/jasmincastill" class="btn btn-secondary" target="_blank">Ver Behance</a>
+    <main>
+        
+        <section id="home" class="hero-section">
+            <div class="video-container">
+                <video id="heroVideo" autoplay loop muted playsinline preload="auto" class="video-background">
+                    <source src="videos/glaze.webm" type="video/webm">
+                    Tu navegador no soporta el tag de video.
+                </video>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section class="about" id="sobre-mi">
-        <div class="about-grid">
-            <div class="about-text">
-                <h2>Diseño con propósito e innovación</h2>
-                <p>Apasionada por la innovación en procesos productivos y la integración de la tecnología en proyectos creativos.</p>
-                <p>Mi trabajo explora desde el diseño de producto hasta la experimentación con materiales y fabricación digital, siempre buscando conectar la funcionalidad con la emoción.</p>
+            
+            <div class="hero-content scroll-animate">
+                <h1 class="hero-title">Diseño Integral <br>Ayleen Bahamóndez</h1>
             </div>
-            <div class="skills" id="habilidades">
-                <h3>Habilidades</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Fusion 360</span>
-                        <span>100%</span>
+        </section>
+        
+        <section id="works" class="works-section">
+            <header class="section-header scroll-animate">
+                <h2 class="section-title">02. Proyectos Destacados</h2>
+            </header>
+
+            <div class="project-list-wrapper scroll-animate">
+                <div class="project-track" id="projectTrack">
                     </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="--width: 100%"></div>
-                    </div>
+            </div>
+
+            <div class="carousel-nav scroll-animate">
+                <p>Scroll para explorar →</p>
+                <div class="nav-controls">
+                    <button id="prevBtn" class="nav-btn">←</button>
+                    <button id="nextBtn" class="nav-btn">→</button>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Inventor</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="--width: 80%"></div>
-                    </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <header class="section-header scroll-animate">
+                <h2 class="section-title">03. Sobre Mí</h2>
+            </header>
+
+            <div class="about-container scroll-animate">
+                <div class="about-photo-frame">
+                    <img src="img/yo.webp" alt="Foto de Ayleen Bahamóndez" class="profile-photo">
                 </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Illustrator</span>
-                        <span>50%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="--width: 50%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Blender</span>
-                        <span>10%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="--width: 10%"></div>
+                <div class="about-text-content">
+                    <p class="bio-intro">Soy estudiante de Diseño Integral de la Pontificia Universidad Católica de Chile, apasionada por la **innovación en procesos productivos** y la integración de tecnología.</p>
+                    <p>
+                        Mi enfoque es la fusión de la estética minimalista con la funcionalidad, explorando desde el diseño de producto (industrial y digital) hasta la experimentación con materiales y fabricación. Este portafolio recopila los proyectos más representativos de mi trayectoria académica, demostrando mi capacidad para abordar desafíos de forma interdisciplinaria.
+                    </p>
+                    <div class="skills-grid">
+                        <p class="skills-title">Herramientas & Habilidades:</p>
+                        <ul>
+                            <li>Diseño UX/UI</li>
+                            <li>Modelado 3D (Inventor, SolidWorks)</li>
+                            <li>Adobe Creative Suite</li>
+                            <li>Fabricación Digital</li>
+                            <li>Visualización de Datos</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Portfolio -->
-    <section class="portfolio" id="portafolio">
-        <div class="portfolio-header">
-            <h2>Proyectos Destacados</h2>
-        </div>
-        <div class="portfolio-grid" id="portfolioGrid"></div>
-    </section>
+        <section id="contact" class="contact-section">
+            <header class="section-header scroll-animate">
+                <h2 class="section-title">04. Contacto</h2>
+            </header>
 
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="footer-content">
-            <h3>Conversemos</h3>
-            <p>¿Tienes un proyecto en mente? Me encantaría conocer más sobre tu visión.</p>
-            <div class="footer-links">
-                <a href="mailto:ayleen.bahamndez@uc.cl">Email</a>
-                <a href="https://www.behance.net/jasmincastill" target="_blank">Behance</a>
-                <a href="#inicio">Inicio</a>
+            <div class="contact-main-content scroll-animate">
+                <p class="contact-intro">Si te gusta mi visión y quieres hablar sobre un proyecto o colaboración, ¡escríbeme!</p>
+                <a href="mailto:ayleen.bahamondez@uc.cl" class="email-link">ayleen.bahamondez@uc.cl</a>
+                
+                <div class="contact-details-top">
+                    <div class="contact-block">
+                        <h4 class="block-label">LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/ayleen-bahamondez" target="_blank">/ayleen-bahamondez</a>
+                    </div>
+                    <div class="contact-block">
+                        <h4 class="block-label">Behance</h4>
+                        <a href="https://www.behance.net/ayleenbahamondez" target="_blank">/ayleenbahamondez</a>
+                    </div>
+                    <div class="contact-block">
+                        <h4 class="block-label">Instagram</h4>
+                        <a href="https://www.instagram.com/ayleenbahamondez" target="_blank">@ayleenbahamondez</a>
+                    </div>
+                </div>
             </div>
-            <p class="copyright">© 2025 Ayleen Bahamóndez. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+
+            <footer class="contact-footer scroll-animate">
+                <div class="footer-left">
+                    <p>© 2025 Ayleen Bahamóndez - Diseñadora Integral</p>
+                </div>
+                <div class="footer-right">
+                    <p>SANTIAGO, CL</p>
+                    <a href="#home" class="back-to-top">Back to top →</a>
+                </div>
+            </footer>
+
+        </section>
+        
+    </main>
 
     <script src="script.js"></script>
 </body>
