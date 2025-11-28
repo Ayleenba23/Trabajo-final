@@ -16,7 +16,19 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Le Murmure Font -->
+    <style>
+        @font-face {
+            font-family: 'Le Murmure';
+            src: url('https://velvetyne.fr/fonts/le-murmure/le-murmure.woff2') format('woff2'),
+                 url('https://velvetyne.fr/fonts/le-murmure/le-murmure.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -53,13 +65,12 @@
 
     <!-- SECCIÓN HERO CON VIDEO -->
     <section class="hero" id="home">
-        <!-- Video de fondo -->
+        <!-- Video de fondo SIN OVERLAY -->
         <div class="hero-video">
             <video autoplay muted loop playsinline id="heroVideo" poster="img/poster.jpg">
                 <source src="videos/glaze.webm" type="video/webm">
                 <source src="videos/glaze.mp4" type="video/mp4">
             </video>
-            <div class="video-overlay"></div>
         </div>
 
         <!-- Contenido Hero -->
@@ -81,7 +92,6 @@
     <section id="about" class="about-section">
         <div class="about-container">
             
-            <!-- COLUMNA IZQUIERDA -->
             <div class="about-text-column">
                 <h2 class="about-title scroll-animate" data-translate="about-title">Sobre mí</h2>
                 
@@ -100,10 +110,8 @@
                 </div>
             </div>
 
-            <!-- COLUMNA DERECHA -->
             <div class="about-resume">
                 
-                <!-- EXPERIENCIA -->
                 <div class="resume-block scroll-animate">
                     <h4 class="resume-title" data-translate="experience-title">Experiencia Laboral</h4>
                     
@@ -124,7 +132,6 @@
                     </div>
                 </div>
 
-                <!-- ESTUDIOS -->
                 <div class="resume-block scroll-animate">
                     <h4 class="resume-title" data-translate="education-title">Estudios</h4>
                     
@@ -137,7 +144,6 @@
                     </div>
                 </div>
 
-                <!-- HABILIDADES -->
                 <div class="resume-block scroll-animate">
                     <h4 class="resume-title" data-translate="skills-title">Manejo de Software</h4>
                     
@@ -195,7 +201,6 @@
             </div>
 
             <div class="carousel-track" id="carouselTrack">
-                <!-- Se carga dinámicamente desde datos.json -->
                 <div class="loading-spinner">
                     <div class="spinner"></div>
                 </div>
@@ -211,7 +216,7 @@
         </div>
     </div>
 
-    <!-- SECCIÓN CONTACTO -->
+    <!-- SECCIÓN CONTACTO CON FORMULARIO -->
     <section id="contact" class="contact-section">
         <div class="contact-container">
             
@@ -231,8 +236,8 @@
                     <div class="contact-details-top">
                         <div class="contact-block">
                             <h4 class="block-label">Email</h4>
-                            <a href="mailto:ayleen.bahamondez@uc.cl" class="contact-email-link">
-                                ayleen.bahamondez@uc.cl
+                            <a href="mailto:ayleenbahamondezlatorre@gmail.com" class="contact-email-link">
+                                ayleenbahamondezlatorre@gmail.com
                                 <span class="arrow-icon">↗</span>
                             </a>
                         </div>
@@ -240,9 +245,9 @@
                         <div class="contact-block">
                             <h4 class="block-label" data-translate="social-title">Redes</h4>
                             <ul class="social-list">
-                                <li><a href="https://www.linkedin.com/in/ayleen-bahamondez" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                                <li><a href="https://www.behance.net/ayleenbahamondez" target="_blank" rel="noopener noreferrer">Behance</a></li>
-                                <li><a href="https://www.instagram.com/ayleenbahamondez" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                                <li><a href="https://www.linkedin.com/in/ayleen-baham%C3%B3ndez-3306ab259" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                                <li><a href="https://sketchfab.com/ayleen.bahamndez" target="_blank" rel="noopener noreferrer">Sketchfab</a></li>
+                                <li><a href="https://www.instagram.com/ayleen.bahamondez" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                             </ul>
                         </div>
                     </div>
@@ -254,6 +259,29 @@
                     </div>
 
                 </div>
+            </div>
+
+            <!-- FORMULARIO DE CONTACTO -->
+            <div class="contact-form-section scroll-animate">
+                <h3 class="form-title" data-translate="form-title">Envíame un mensaje</h3>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="nombre" name="nombre" required>
+                            <label for="nombre" data-translate="form-name">Nombre</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                        <label for="mensaje" data-translate="form-message">Mensaje</label>
+                    </div>
+                    <button type="submit" class="btn-submit" data-translate="form-send">Enviar mensaje</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
             </div>
 
             <!-- FOOTER -->
