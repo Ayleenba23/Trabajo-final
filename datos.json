@@ -1,14 +1,20 @@
 [
   {
-    "title": "Sismogramas en Arcilla",
+    "title": "Robot en Arcilla",
     "category": "Diseño Industrial · Fabricación Digital · Robótica",
     "photo": "img/sismogramas.webp",
     "year": "2025",
-    "slug": "sismogramas-en-arcilla",
+    "slug": "robot-en-arcilla",
     "description": "Memoria Sísmica como Piel Arquitectónica. Transformación del trauma cultural en arte y memoria, a través de la transcripción de acelerogramas sísmicos en paneles cerámicos.",
+    "description_full": "Este proyecto, titulado **'Memoria Sísmica como Piel Arquitectónica'**, buscó transformar el trauma cultural del terremoto en Chile de 2010 en arte y memoria permanente.\n\n### Concepto y Objetivo\nLa esencia del trabajo fue la transcripción precisa de **acelerogramas sísmicos** (datos crudos del sismo) en trazos vectoriales controlados por un sistema robótico ABB sobre paneles de arcilla blanca no cocida. El robot actúa como la fuerza de un terremoto, garantizando la rigurosidad técnica al grabar la huella.\n\n### Materialidad y Proceso\nLa **Arcilla Blanca** no cocida permite la **reutilización infinita** (resiliencia), mientras que el trazo grabado tras la cocción la conecta con el patrimonio material chileno. Se empleó una técnica **sustractiva** con un patrón de **Voronoi** en la morfología de los paneles para simular la fragmentación sísmica.\n\n### Desafío Técnico\nLas principales dificultades residieron en el procesamiento del dato sísmico y su programación en **Grasshopper**. Este enfoque iterativo confirmó que el proceso de prueba y error es fundamental para la materialización exitosa de data compleja a través de la robótica.",
     "context": "Investigación Dirigida en Arquitectura 2025",
     "role": "Trabajo en grupo - Ayleen Bahamóndez, Constança De Oliveira, Salvador Lino",
-    "programs": "Grasshopper, RhinoRobotics, ABB Robot, Illustrator"
+    "role_short": "Trabajo en grupo",
+    "programs": "Grasshopper, RhinoRobotics, ABB Robot, Illustrator",
+    "photo_folder": "sismogramas",
+    "images_count": 4,
+    "palette": ["#415B5C", "#A2A8A9", "#E1C296", "#F2F2F2"],
+    "sketchfab_id": null
   },
   {
     "title": "ChocoCraft Station",
@@ -16,21 +22,33 @@
     "photo": "img/chococraft.webp",
     "year": "2024",
     "slug": "chococraft-station",
-    "description": "Máquina experimental desarrollada con el método de Paracrafting, combinando práctica manual y ensayo y error. Sistema de tres estaciones para derretido, moldeo y secado de chocolate.",
+    "description": "Máquina experimental desarrollada con el método de Paracrafting. Sistema de tres estaciones: derretido, moldeo (con manivela) y secado de chocolate para recipientes comestibles.",
+    "description_full": "ChocoCraft Station es una máquina experimental diseñada y fabricada manualmente aplicando el método de **Paracrafting**, que valora la práctica manual y el ensayo y error en el proceso creativo.\n\n### Estaciones de Flujo\nEl sistema se organizó en tres estaciones funcionales: 1) **Derretido** del chocolate mediante calor, 2) **Vertido y Moldeo** mediante un sistema de manivela y gravedad para generar formas que se transforman en recipientes comestibles, y 3) **Secado**.\n\n### Integración de Diseño\nTodo el sistema se fabricó artesanalmente, uniendo la **ingeniería artesanal** con el **diseño de alimentos**. Este proyecto destaca la importancia de la experimentación en los procesos productivos, buscando soluciones que fusionan lo técnico, lo lúdico y la experiencia gastronómica.",
     "context": "Curso de Procesos de Producción 2024",
     "role": "Trabajo en grupo - Ayleen Bahamondez, Maite Villegas, Dairyn Jordan",
-    "programs": "CAD básico, Illustrator"
+    "role_short": "Trabajo en grupo",
+    "programs": "CAD básico, Illustrator",
+    "photo_folder": "chococraft",
+    "images_count": 2,
+    "palette": ["#4F2C2C", "#A86F4B", "#F5E6CC", "#555555"],
+    "sketchfab_id": null
   },
   {
     "title": "Un Recuerdo Eterno",
-    "category": "Diseño 3D · Fotogrametría y Modelado 3D",
+    "category": "Diseño 3D · Fabricación Digital · Modelado 3D",
     "photo": "img/recuerdo.webp",
     "year": "2022",
     "slug": "un-recuerdo-eterno",
-    "description": "Captura y preservación mediante fotogrametría y modelado 3D. Modelo tridimensional detallado materializado mediante impresión 3D con valor emocional.",
+    "description": "Captura y preservación de la presencia de una mascota mediante fotogrametría y modelado 3D, materializado mediante impresión 3D con valor emocional.",
+    "description_full": "Este proyecto personal se enfocó en la **captura y preservación** de la presencia de mi perrito, integrando herramientas digitales avanzadas al servicio de la memoria y la emoción.\n\n### Flujo de Trabajo Digital\nEl proceso inició con la recopilación de múltiples fotografías, que fueron procesadas mediante **fotogrametría** (Agisoft Metashape) para crear un modelo tridimensional detallado. Este modelo fue refinado en software de diseño (Meshmixer, Blender).\n\n### Materialización y Valor\nEl modelo fue finalmente materializado mediante **impresión 3D** (Cura). El resultado es más que una escultura; es un objeto con un profundo **valor emocional** que representa un recuerdo tangible y eterno. El **modelo 3D interactivo** está disponible en Sketchfab para explorar los detalles técnicos del escaneo.",
     "context": "Curso de Fotogrametría y Modelado 3D 2022",
     "role": "Proyecto individual",
-    "programs": "Agisoft Metashape, Meshmixer, Blender, Cura"
+    "role_short": "Proyecto individual",
+    "programs": "Agisoft Metashape, Meshmixer, Blender, Cura",
+    "photo_folder": "recuerdo",
+    "images_count": 3,
+    "palette": ["#7A7165", "#A6A39E", "#DED9D4", "#503D2E"],
+    "sketchfab_id": "57fcdd8f93a346218ab4c69cafbf59ff"
   },
   {
     "title": "Carruaje Fantasía",
@@ -38,10 +56,16 @@
     "photo": "img/carruaje.webp",
     "year": "2024",
     "slug": "carruaje-fantasia",
-    "description": "Prototipado en acrílico cortado y ensamblado manualmente. Objeto ornamental con precisión estructural y carácter mágico.",
+    "description": "Prototipado en acrílico cortado y ensamblado manualmente. Objeto ornamental con precisión estructural y carácter mágico mediante corte láser.",
+    "description_full": "El Carruaje Fantasía fue un ejercicio académico intensivo centrado en el **prototipado físico** a partir de modelos digitales. Se utilizó **acrílico cortado con láser** (RD Works) y ensamblado manualmente.\n\n### Desafío y Precisión\nEl objetivo principal fue crear un objeto ornamental que demostrara **precisión estructural** y estética, aplicando técnicas avanzadas de **modelado 3D** (Fusion 360). La elección del acrílico transparente y los grabados permitió jugar con la luz, confiriéndole a la pieza un carácter mágico.\n\n### Conexión Digital-Física\nEste proyecto reforzó la conexión crucial entre el diseño computacional detallado y la materialización física, donde la **rigurosidad** en el modelo digital es clave para un ensamblaje exitoso y la creación de una pieza final pulcra.",
     "context": "Curso de Modelado 3D 2024",
     "role": "Proyecto individual",
-    "programs": "Fusion 360, RDWorks"
+    "role_short": "Proyecto individual",
+    "programs": "Fusion 360, RDWorks",
+    "photo_folder": "carruaje",
+    "images_count": 3,
+    "palette": ["#C5D6E1", "#334D66", "#99AAB5", "#F2E8E0"],
+    "sketchfab_id": null
   },
   {
     "title": "Guardianes Nocturnos",
@@ -49,10 +73,16 @@
     "photo": "img/guardianes.webp",
     "year": "2025",
     "slug": "guardianes-nocturnos",
-    "description": "Colección de luminarias de especies endémicas de Chile en peligro. Transformación de especies reales en personajes entrañables para visibilizar la conservación.",
+    "description": "Colección de luminarias de especies endémicas de Chile en peligro. El diseño busca ternurizar para visibilizar y promover su conservación.",
+    "description_full": "Esta es una colección de **luminarias espantacuco** inspirada en especies endémicas de Chile que se encuentran en peligro. El proyecto aborda la conservación desde una perspectiva emocional y lúdica.\n\n### El Concepto 'Ternurización'\nEl concepto clave es la **'ternurización'**: transformar especies reales, que son difíciles de ver y cuidar, en personajes entrañables y accesibles. Al acercarlas desde la ternura en lugar de la amenaza, se fomenta el descubrimiento afectivo y el cuidado.\n\n### Prototipado y Producción\nLas luminarias fueron diseñadas utilizando un flujo de trabajo que incluyó **Nomad Sculpt** y **Fusion 360**, y fueron materializadas mediante **impresión 3D** (Prusa Slicer), utilizando la iluminación como una herramienta para la sensibilización y el cambio cultural hacia la conservación.",
     "context": "Taller de diseño biológicamente integrado 2025",
     "role": "Proyecto individual",
-    "programs": "Illustrator, Fusion 360, Nomad sculpt, Meshmixer, Prusa slicer"
+    "role_short": "Proyecto individual",
+    "programs": "Illustrator, Fusion 360, Nomad sculpt, Meshmixer, Prusa slicer",
+    "photo_folder": "guardianes",
+    "images_count": 2,
+    "palette": ["#4F6B4C", "#A3C49A", "#E6F3E6", "#734F4F"],
+    "sketchfab_id": null
   },
   {
     "title": "Mocktail – Romper el Hielo",
@@ -60,10 +90,16 @@
     "photo": "img/mocktail.webp",
     "year": "2023",
     "slug": "mocktail-romper-el-hielo",
-    "description": "Creación integral de mocktail incluyendo identidad de marca, narrativa y packaging. Propuesta diferenciada combinando diseño estratégico y branding experiencial.",
-    "context": "Taller Producto 2023",
+    "description": "Creación integral de mocktail incluyendo identidad de marca, narrativa y packaging. Propuesta diferenciada con el concepto clave 'romper el hielo'.",
+    "description_full": "Este proyecto abarcó la **creación integral** de un mocktail (bebida sin alcohol), incluyendo el desarrollo de la identidad de marca, la narrativa asociada y el diseño completo del packaging.\n\n### Investigación y Estrategia\nLa fase inicial consistió en una investigación profunda sobre problemáticas y oportunidades en el consumo de bebidas sin alcohol, lo que llevó a definir el concepto clave **'romper el hielo'** como eje de la propuesta.\n\n### Diseño Experiencial\nEl desarrollo fue **experiencial**, involucrando la selección de sabores y el diseño sensorial y visual. El resultado es una propuesta diferenciada que combina el **diseño estratégico** con un **branding experiencial** robusto, ofreciendo una solución coherente y atractiva para un nicho de mercado.",
+    "context": "Taller Producto 2θος23",
     "role": "Proyecto en equipo",
-    "programs": "Illustrator, Photoshop, Procreate"
+    "role_short": "Proyecto en equipo",
+    "programs": "Illustrator, Photoshop, Procreate",
+    "photo_folder": "mocktail",
+    "images_count": 5,
+    "palette": ["#005691", "#C7493A", "#E8DFD0", "#333333"],
+    "sketchfab_id": null
   },
   {
     "title": "Cromalux – Luminaria",
@@ -71,10 +107,16 @@
     "photo": "img/cromalux.webp",
     "year": "2023",
     "slug": "cromalux-luminaria",
-    "description": "Luminaria de acrílico translúcido inspirada en geometría sagrada. Efecto único de luz y color evocando sensación de estar encendida permanentemente.",
+    "description": "Luminaria de acrílico translúcido inspirada en geometría sagrada. Genera un efecto único de luz y color, evocando la sensación de estar encendida permanentemente.",
+    "description_full": "Cromalux es una **luminaria de acrílico translúcido** cuyo diseño está fuertemente inspirado en los principios de la **geometría sagrada**. La intención es trascender la función básica de iluminación para generar una experiencia estética.\n\n### Fabricación y Estética\nEl diseño fue materializado mediante **corte láser** y ensambles de precisión. Su objetivo es generar un **efecto único de luz y color** que evoque la sensación de que la luminaria está encendida permanentemente, incluso de día.\n\n### Impacto Visual\nEl proyecto combinó la exploración estética con el uso de recursos de **fabricación digital**. Se utilizó el **Fotomontaje** (Photoshop) para proyectar su impacto, mostrando cómo la luz puede convertirse en un elemento emocional y poético en diversos contextos espaciales.",
     "context": "Curso de Iluminación 2023",
     "role": "Trabajo en grupo - Ayleen Bahamondez, Dalí Ramírez, Martina Pérez",
-    "programs": "Illustrator, Photoshop, RDWorks, Procreate"
+    "role_short": "Trabajo en grupo",
+    "programs": "Illustrator, Photoshop, RDWorks, Procreate",
+    "photo_folder": "cromalux",
+    "images_count": 4,
+    "palette": ["#E86A71", "#334D66", "#99AAB5", "#F2E8E0"],
+    "sketchfab_id": null
   },
   {
     "title": "Velas Osito Cansadito",
@@ -82,10 +124,16 @@
     "photo": "img/velas.webp",
     "year": "2023",
     "slug": "velas-osito-cansadito",
-    "description": "Fabricación de velas artesanales explorando procesos de moldeo. Producto con valor estético y emocional conectando con ternura y nostalgia.",
+    "description": "Fabricación de velas artesanales explorando procesos de moldeo con silicona de caucho. Producto con valor estético y emocional, conectando con ternura y nostalgia.",
+    "description_full": "Este proyecto se centró en la fabricación artesanal de velas con la figura de un osito, sirviendo como una exploración práctica de los **procesos de moldeo** aplicados al diseño de objetos con carga emocional.\n\n### Diseño y Moldeado\nEl flujo de trabajo incluyó el diseño 3D del modelo en **Fusion 360** y su posterior impresión 3D. A partir de este prototipo, se elaboró un molde de **silicona de caucho**, ideal por su flexibilidad y capacidad para capturar detalles finos.\n\n### Producto Final\nLa cera fue fundida, coloreada y aromatizada, creando un producto que apela a la **ternura y nostalgia**. El resultado fue una vela personalizada y única, demostrando cómo el diseño y la manufactura pueden converger para crear productos con un fuerte valor estético y emocional.",
     "context": "Procesos de Producción 2023",
     "role": "Trabajo en grupo - Ayleen Bahamondez, Maite Villegas, Dairyn Jordan",
-    "programs": "Fusion 360, Illustrator, Cura"
+    "role_short": "Trabajo en grupo",
+    "programs": "Fusion 360, Illustrator, Cura",
+    "photo_folder": "velas",
+    "images_count": 1,
+    "palette": ["#9D8A7D", "#E2D3C4", "#6A453F", "#F8F8F8"],
+    "sketchfab_id": null
   },
   {
     "title": "Mesa Transportadora T-37",
@@ -93,13 +141,15 @@
     "photo": "img/mesa.webp",
     "year": "2024",
     "slug": "mesa-transportadora-t-37",
-    "description": "Diseño completo de mesa transportadora desde modelado 3D hasta planificación de fabricación. Integración de conocimientos de diseño y manufactura en contexto industrial real.",
+    "description": "Diseño completo de mesa transportadora, desde modelado 3D (Autodesk Inventor) hasta planificación de fabricación. Integración de diseño y manufactura en contexto industrial.",
+    "description_full": "El proyecto **T-37** fue un desafío de **diseño industrial** completado durante mi Práctica Profesional en Fabrinox. Consistió en el diseño integral de una mesa transportadora para uso industrial.\n\n### Tareas de Ingeniería\nEl alcance incluyó el **modelado 3D detallado** de todas las piezas estructurales, subgrupos y ensamblajes generales utilizando **Autodesk Inventor**.\n\n### Documentación y Producción\nFui responsable de generar la **planimetría**, nomenclaturas y archivos listos para su producción y manufactura. Esta experiencia exigió **rigurosidad técnica**, autonomía y colaboración en un contexto industrial real, aplicando criterios profesionales y adaptándome a los estándares de la empresa.",
     "context": "Práctica Profesional en Fabrinox 2024",
     "role": "Proyecto individual bajo supervisión profesional",
-    "programs": "Autodesk Inventor"
+    "role_short": "Práctica Profesional",
+    "programs": "Autodesk Inventor",
+    "photo_folder": "mesa",
+    "images_count": 4,
+    "palette": ["#36454F", "#A0A8AD", "#D6D6D6", "#42A8A1"],
+    "sketchfab_id": null
   }
 ]
-```
-
-
-
