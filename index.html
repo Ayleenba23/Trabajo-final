@@ -6,19 +6,18 @@
     <meta name="description" content="Portafolio de Ayleen Bahamóndez - Diseñadora Integral UC especializada en diseño de producto, fabricación digital e innovación">
     <meta name="author" content="Ayleen Bahamóndez">
     
-    <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
+    <link rel="canonical" href="https://ayleenbahamondez.cl/">
+    
     <title>Ayleen Bahamóndez · Diseñadora Integral UC</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Le Murmure Font -->
     <style>
         @font-face {
             font-family: 'Le Murmure';
@@ -32,26 +31,22 @@
     
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="theme-dark">
     
-    <!-- LOGO PORTAFOLIO -->
     <a href="#home" class="logo-portafolio">Portafolio</a>
 
-    <!-- SELECTOR DE IDIOMA -->
     <div class="language-selector">
         <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
         <span class="lang-separator">/</span>
         <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
     </div>
 
-    <!-- MENÚ HAMBURGUESA -->
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <!-- MENÚ LATERAL -->
     <nav class="side-menu" id="sideMenu">
         <ul class="main-menu">
             <li><a href="#home" class="main-link" data-translate="nav-home">Inicio</a></li>
@@ -63,9 +58,7 @@
 
     <div class="overlay" id="overlay"></div>
 
-    <!-- SECCIÓN HERO CON VIDEO -->
-    <section class="hero" id="home">
-        <!-- Video de fondo SIN OVERLAY -->
+    <section class="hero theme-dark" id="home">
         <div class="hero-video">
             <video autoplay muted loop playsinline id="heroVideo" poster="img/poster.jpg">
                 <source src="videos/glaze.webm" type="video/webm">
@@ -73,40 +66,36 @@
             </video>
         </div>
 
-        <!-- Contenido Hero -->
         <div class="hero-content">
-            <h1 class="hero-title">Ayleen Bahamondez</h1>
+            <h1 class="hero-title le-murmure">Ayleen Bahamondez</h1> 
             <p class="hero-subtitle" data-translate="hero-subtitle">Diseñadora Integral UC</p>
             <a href="#work" class="btn-projects" data-translate="btn-projects">Ver proyectos</a>
         </div>
 
-        <!-- Scroll indicator -->
         <div class="scroll-indicator">
             <div class="mouse">
                 <div class="wheel"></div>
             </div>
         </div>
     </section>
-
-    <!-- SECCIÓN ABOUT -->
+    
     <section id="about" class="about-section">
         <div class="about-container">
             
             <div class="about-text-column">
                 <h2 class="about-title scroll-animate" data-translate="about-title">Sobre mí</h2>
                 
-                <div class="about-content scroll-animate">
-                    <p class="about-bio" data-translate="about-text1">
-                        Soy estudiante de Diseño Integral de la <strong>Pontificia Universidad Católica de Chile</strong>, apasionada por el diseño interdisciplinario y la innovación en procesos productivos.
-                    </p>
-                    <p class="about-bio" data-translate="about-text2">
-                        Mi trabajo explora desde el diseño de producto hasta la experimentación con materiales y fabricación digital, integrando tecnología en proyectos creativos.
-                    </p>
-
-                    <!-- FOTO CIRCULAR -->
-                    <div class="about-photo-small scroll-animate">
+                <div class="about-content">
+                    <div class="about-photo-small scroll-animate"> 
                         <img src="img/yo.jpg" alt="Ayleen Bahamóndez" loading="lazy">
                     </div>
+
+                    <p class="about-bio scroll-animate" data-translate="about-text1">
+                        Soy estudiante de Diseño Integral UC, impulsada por la **innovación en procesos productivos** y la integración de la **tecnología** en el diseño. Mi enfoque es interdisciplinario, abarcando desde el modelado 3D y la fabricación digital, hasta el desarrollo estratégico de productos.
+                    </p>
+                    <p class="about-bio scroll-animate" data-translate="about-text2">
+                        Busco constantemente la convergencia entre la **funcionalidad rigurosa** y la **emoción**. Valoro el trabajo colaborativo, la gestión detallada del tiempo y la capacidad de transformar la curiosidad en proyectos tangibles, como este portafolio, que diseñé y programé desde cero.
+                    </p>
                 </div>
             </div>
 
@@ -145,19 +134,12 @@
                 </div>
 
                 <div class="resume-block scroll-animate">
-                    <h4 class="resume-title" data-translate="skills-title">Manejo de Software</h4>
+                    <h4 class="resume-title" data-translate="skills-title">Nivel Manejo de Software</h4>
                     
                     <div class="skill-bar scroll-animate">
-                        <span class="skill-name">Fusion 360</span>
+                        <span class="skill-name">Photoshop</span>
                         <div class="bar-container">
-                            <div class="bar-fill" style="width: 100%;"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-bar scroll-animate">
-                        <span class="skill-name">Inventor</span>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="width: 80%;"></div>
+                            <div class="bar-fill" style="width: 40%;"></div>
                         </div>
                     </div>
 
@@ -169,9 +151,16 @@
                     </div>
 
                     <div class="skill-bar scroll-animate">
-                        <span class="skill-name">Photoshop</span>
+                        <span class="skill-name">Inventor</span>
                         <div class="bar-container">
-                            <div class="bar-fill" style="width: 40%;"></div>
+                            <div class="bar-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-bar scroll-animate">
+                        <span class="skill-name">Fusion 360</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 100%;"></div>
                         </div>
                     </div>
                 </div>
@@ -180,12 +169,11 @@
         </div>
     </section>
 
-    <!-- SECCIÓN WORKS -->
     <section id="work" class="works-section">
         <div class="works-container">
             
             <div class="works-header scroll-animate">
-                <h2 class="section-title" data-translate="works-title">Proyectos Destacados</h2>
+                <h2 class="section-title section-title-color-change" data-translate="works-title">Proyectos Destacados</h2>
                 <div class="carousel-controls">
                     <button id="prevBtn" class="carousel-btn" aria-label="Anterior">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -208,7 +196,6 @@
         </div>
     </section>
 
-    <!-- CINTA MARQUEE -->
     <div class="marquee-container">
         <div class="marquee-content">
             <span>DISEÑO DE PRODUCTO &nbsp;•&nbsp; FABRICACIÓN DIGITAL &nbsp;•&nbsp; INNOVACIÓN &nbsp;•&nbsp; MODELADO 3D &nbsp;•&nbsp; </span>
@@ -216,7 +203,6 @@
         </div>
     </div>
 
-    <!-- SECCIÓN CONTACTO CON FORMULARIO -->
     <section id="contact" class="contact-section">
         <div class="contact-container">
             
@@ -245,9 +231,9 @@
                         <div class="contact-block">
                             <h4 class="block-label" data-translate="social-title">Redes</h4>
                             <ul class="social-list">
-                                <li><a href="https://www.linkedin.com/in/ayleen-baham%C3%B3ndez-3306ab259" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                                <li><a href="https://www.linkedin.com/in/ayleen-baham%C3%B3ndez-3306ab259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                                 <li><a href="https://sketchfab.com/ayleen.bahamndez" target="_blank" rel="noopener noreferrer">Sketchfab</a></li>
-                                <li><a href="https://www.instagram.com/ayleen.bahamondez" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                                <li><a href="https://www.instagram.com/ayleen.bahamondez?igsh=MXZpc2FtOGx4c3o4dA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                             </ul>
                         </div>
                     </div>
@@ -261,30 +247,31 @@
                 </div>
             </div>
 
-            <!-- FORMULARIO DE CONTACTO -->
             <div class="contact-form-section scroll-animate">
                 <h3 class="form-title" data-translate="form-title">Envíame un mensaje</h3>
                 <form id="contactForm" class="contact-form">
                     <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="nombre" name="nombre" required>
-                            <label for="nombre" data-translate="form-name">Nombre</label>
+                        <div class="form-group form-group-float">
+                            <input type="text" id="nombre-ab" name="nombre" required>
+                            <label for="nombre-ab" data-translate="form-name">Nombre</label>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" required>
-                            <label for="email">Email</label>
+                        <div class="form-group form-group-float">
+                            <input type="email" id="email-ab" name="email" required>
+                            <label for="email-ab">Email</label>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                        <label for="mensaje" data-translate="form-message">Mensaje</label>
+                    <div class="form-group form-group-float">
+                        <textarea id="mensaje-ab" name="mensaje" rows="5" required></textarea>
+                        <label for="mensaje-ab" data-translate="form-message">Mensaje</label>
                     </div>
+                    
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde ayleenbahamondez.cl">
+                    
                     <button type="submit" class="btn-submit" data-translate="form-send">Enviar mensaje</button>
                     <div id="formMessage" class="form-message"></div>
                 </form>
             </div>
 
-            <!-- FOOTER -->
             <footer class="contact-footer scroll-animate">
                 <div class="footer-left">
                     <p>© 2025 Ayleen Bahamóndez</p>
