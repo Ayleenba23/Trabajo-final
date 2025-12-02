@@ -11,8 +11,8 @@ const translations = {
         'hero-subtitle': 'Diseñadora Integral UC',
         'btn-projects': 'Ver proyectos',
         'about-title': 'Sobre mí',
-        'about-text1': 'Soy estudiante de Diseño Integral UC, impulsada por la **innovación en procesos productivos** y la integración de la **tecnología** en el diseño. Mi enfoque es interdisciplinario, abarcando desde el modelado 3D y la fabricación digital, hasta el desarrollo estratégico de productos.',
-        'about-text2': 'Busco constantemente la convergencia entre la **funcionalidad rigurosa** y la **emoción**. Valoro el trabajo colaborativo, la gestión detallada del tiempo y la capacidad de transformar la curiosidad en proyectos tangibles, como este portafolio, que diseñé y programé desde cero.',
+        'about-text1': 'Soy estudiante de Diseño Integral UC, impulsada por la innovación en procesos productivos y la integración de la tecnología en el diseño. Mi enfoque es interdisciplinario, abarcando desde el modelado 3D y la fabricación digital, hasta el desarrollo estratégico de productos.',
+        'about-text2': 'Busco constantemente la convergencia entre la funcionalidad rigurosa y la calidad. Valoro el trabajo colaborativo, la gestión detallada del tiempo y la capacidad de transformar la curiosidad en proyectos tangibles, como este portafolio, que diseñé y programé desde cero.',
         'experience-title': 'Experiencia Laboral',
         'education-title': 'Estudios',
         'skills-title': 'Nivel Manejo de Software', // CAMBIO AQUÍ
@@ -38,8 +38,8 @@ const translations = {
         'hero-subtitle': 'Integral Designer UC',
         'btn-projects': 'View projects',
         'about-title': 'About me',
-        'about-text1': "I'm an Integral Design student at UC, driven by **innovation in production processes** and the integration of **technology** in design. My focus is interdisciplinary, spanning 3D modeling, digital fabrication, and strategic product development.",
-        'about-text2': 'I constantly seek the convergence between **rigorous functionality** and **emotion**. I value collaborative work, detailed time management, and the ability to transform curiosity into tangible projects, such as this portfolio, which I designed and coded from scratch.',
+        'about-text1': "I'm an Integral Design student at UC, driven by innovation in production processes and the integration of technology in design. My focus is interdisciplinary, spanning 3D modeling, digital fabrication, and strategic product development.",
+        'about-text2': 'I constantly seek the convergence between rigorous functionality and quality. I value collaborative work, detailed time management, and the ability to transform curiosity into tangible projects, such as this portfolio, which I designed and coded from scratch.',
         'experience-title': 'Work Experience',
         'education-title': 'Education',
         'skills-title': 'Software Proficiency Level', // CAMBIO AQUÍ
