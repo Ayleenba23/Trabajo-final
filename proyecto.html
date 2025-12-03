@@ -3,308 +3,701 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Detalle del Proyecto de Ayleen Bahamóndez">
-    <title id="project-title-meta">Cargando Proyecto...</title>
+    <title id="project-title-meta">Proyecto - Ayleen Bahamóndez</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        @font-face {
-            font-family: 'Le Murmure';
-            src: url('https://velvetyne.fr/fonts/le-murmure/le-murmure.woff2') format('woff2'),
-                 url('https://velvetyne.fr/fonts/le-murmure/le-murmure.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --color-dark: #0a0a0a;
+            --color-light: #ffffff;
+            --color-gray: #666666;
+            --color-gray-light: #999999;
+            --color-accent: #238089;
+            --color-accent-light: #42c1b6;
+            --font-display: 'Oswald', sans-serif;
+            --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background: var(--color-light);
+        }
+
+        /* Header */
+        .project-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .back-link {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        .back-link:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-gray);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-dark);
+        }
+
+        /* Hero del proyecto */
+        .project-hero {
+            padding: 8rem 4rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-category {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            font-family: var(--font-sans);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--color-dark);
+            margin-bottom: 2rem;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        .meta-item strong {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-gray-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-item p {
+            font-size: 0.95rem;
+            color: var(--color-dark);
+            line-height: 1.5;
+        }
+
+        /* Imagen principal */
+        .main-image {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            padding: 0 4rem;
+        }
+
+        .main-image img,
+        .main-image video {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contenido del proyecto */
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        .content-section {
+            margin-bottom: 4rem;
+        }
+
+        /* Subtítulos con Oswald */
+        .section-subtitle {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--color-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .section-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 2px;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Separador decorativo */
+        .section-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        .section-divider::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        /* Galería */
+        .project-gallery {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 4rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Paleta de colores */
+        .palette-section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 4rem;
+        }
+
+        .palette-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--color-dark);
+            margin-bottom: 2rem;
+        }
+
+        .palette-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-end;
+            padding: 0.75rem;
+            transition: transform var(--transition-base);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.05);
+        }
+
+        .color-code {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Sketchfab */
+        .sketchfab-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 4rem;
+        }
+
+        .sketchfab-section iframe {
+            width: 100%;
+            height: 500px;
+            border: 0;
+            border-radius: 16px;
+        }
+
+        /* Otros proyectos */
+        .other-projects {
+            background: #fafafa;
+            padding: 5rem 0;
+            margin-top: 5rem;
+        }
+
+        .other-projects-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--color-dark);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .other-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        .other-project-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .other-project-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .other-project-image img,
+        .other-project-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .other-project-card:hover .other-project-image img,
+        .other-project-card:hover .other-project-image video {
+            transform: scale(1.05);
+        }
+
+        .other-project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--transition-base);
+            border-radius: 12px;
+        }
+
+        .other-project-card:hover .other-project-overlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .other-project-btn {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            color: var(--color-dark);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all var(--transition-base);
+        }
+
+        .other-project-card:hover .other-project-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .other-project-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .other-project-info span {
+            font-size: 0.85rem;
+            color: var(--color-gray-light);
+        }
+
+        /* Footer */
+        .project-footer {
+            background: var(--color-dark);
+            padding: 2rem 4rem;
+            text-align: center;
+        }
+
+        .project-footer p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-header {
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .project-hero,
+            .main-image,
+            .project-content,
+            .project-gallery,
+            .palette-section,
+            .sketchfab-section {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .project-hero {
+                padding-top: 6rem;
+            }
+
+            .project-meta {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .other-projects-grid {
+                grid-template-columns: 1fr;
+                padding: 0 2rem;
+            }
+
+            .sketchfab-section iframe {
+                height: 300px;
+            }
         }
     </style>
-    <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-project-body">
+<body>
     
-    <a href="index.html#home" class="logo-portafolio black-logo">Portafolio</a>
+    <header class="project-header">
+        <a href="index.html" class="back-link">← Ayleen Bahamóndez</a>
+        <nav class="nav-links">
+            <a href="index.html#work">Proyectos</a>
+            <a href="index.html#about">Sobre mí</a>
+            <a href="index.html#contact">Contacto</a>
+        </nav>
+    </header>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <nav class="side-menu" id="sideMenu">
-        <ul class="main-menu">
-            <li><a href="index.html#home" class="main-link" data-translate="nav-home">Inicio</a></li>
-            <li><a href="index.html#about" class="main-link" data-translate="nav-about">Sobre mí</a></li>
-            <li><a href="index.html#work" class="main-link" data-translate="nav-work">Proyectos</a></li>
-            <li><a href="index.html#contact" class="main-link" data-translate="nav-contact">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <div class="overlay" id="overlay"></div>
-
-    <section class="project-page">
-        <div class="project-header">
+    <main>
+        <section class="project-hero">
+            <span class="project-category" id="projectCategory"></span>
             <h1 class="project-title" id="projectTitle"></h1>
-            <p class="project-category" id="projectCategory"></p>
-
-            <div class="project-meta-grid">
+            
+            <div class="project-meta">
                 <div class="meta-item">
-                    <strong>AÑO</strong>
+                    <strong>Año</strong>
                     <p id="projectYear"></p>
                 </div>
                 <div class="meta-item">
-                    <strong>CONTEXTO</strong>
+                    <strong>Contexto</strong>
                     <p id="projectContext"></p>
                 </div>
                 <div class="meta-item">
-                    <strong>FORMATO</strong> <p id="projectRole"></p>
+                    <strong>Formato</strong>
+                    <p id="projectRole"></p>
                 </div>
                 <div class="meta-item">
-                    <strong>SOFTWARE</strong>
+                    <strong>Software</strong>
                     <p id="projectPrograms"></p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="project-main-image" id="projectMainImage">
+        <div class="main-image" id="mainImage"></div>
+
+        <section class="project-content">
+            <!-- PROBLEMA -->
+            <div class="content-section" id="problemSection">
+                <h2 class="section-subtitle">Problema :</h2>
+                <p id="problemText"></p>
             </div>
 
-        <div class="project-content-grid">
-            <div class="project-description-block">
-                <h3 class="description-title">Descripción Detallada</h3>
-                <div class="project-description" id="projectDescription">
-                    </div>
+            <div class="section-divider"></div>
+
+            <!-- SOLUCIÓN -->
+            <div class="content-section" id="solutionSection">
+                <h2 class="section-subtitle">Solución :</h2>
+                <p id="solutionText"></p>
             </div>
 
-            <div class="project-gallery" id="projectGallery">
-                </div>
-        </div>
-        
-        <div class="color-palette-section scroll-animate">
+            <div class="section-divider"></div>
+
+            <!-- DESAFÍO -->
+            <div class="content-section" id="challengeSection">
+                <h2 class="section-subtitle">Desafío :</h2>
+                <p id="challengeText"></p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- RESUMEN -->
+            <div class="content-section" id="summarySection">
+                <h2 class="section-subtitle">Resumen :</h2>
+                <p id="summaryText"></p>
+            </div>
+        </section>
+
+        <section class="project-gallery">
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </section>
+
+        <section class="palette-section" id="paletteSection">
             <h3 class="palette-title">Paleta de Colores</h3>
-            <div class="palette-container" id="colorPaletteContainer">
-                </div>
-        </div>
+            <div class="palette-container" id="paletteContainer"></div>
+        </section>
 
-        <div class="other-projects-section">
-            <h3 class="other-projects-title">Otros Proyectos que Podrían Interesarte</h3>
-            
-            <div class="carousel-track" id="otherProjectsCarousel">
-                </div>
-        </div>
-    </section>
+        <section class="sketchfab-section" id="sketchfabSection" style="display: none;"></section>
 
-    <section class="contact-section">
-        <div class="contact-container">
-            <footer class="contact-footer scroll-animate">
-                <div class="footer-left">
-                    <p>© 2025 Ayleen Bahamóndez</p>
-                    <p class="credits" data-translate="footer-credits">Diseñado y programado por mí</p>
-                </div>
-                <div class="footer-right">
-                    <p>Santiago, Chile</p>
-                    <a href="index.html#home" class="back-to-top" data-translate="back-top">Volver al inicio →</a>
-                </div>
-            </footer>
-        </div>
-    </section>
+        <section class="other-projects">
+            <h2 class="other-projects-title">Otros Proyectos</h2>
+            <div class="other-projects-grid" id="otherProjectsGrid"></div>
+        </section>
+    </main>
 
-    <script src="script.js"></script>
+    <footer class="project-footer">
+        <p>© 2025 Ayleen Bahamóndez · Diseñado y programado por mí</p>
+    </footer>
+
     <script>
-        // Lógica específica para la página de proyecto (debe ir después de cargar script.js)
-        document.addEventListener('DOMContentLoaded', initProjectPage);
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectSlug = urlParams.get('slug');
 
-        function initProjectPage() {
-            // Desactivar el color de fondo dinámico del body para esta página
-            document.body.style.backgroundColor = '#ffffff';
-
-            const urlParams = new URLSearchParams(window.location.search);
-            const projectSlug = urlParams.get('slug');
-            
-            // Obtenemos los proyectos de localStorage
-            const allProjects = JSON.parse(localStorage.getItem('proyectos'));
-            const project = allProjects ? allProjects.find(p => p.slug === projectSlug) : null;
-
-            if (!project) {
-                document.getElementById('projectTitle').textContent = 'Proyecto No Encontrado';
-                return;
-            }
-
-            // 1. Rellenar Información del Proyecto
-            document.getElementById('projectTitle').textContent = project.title;
-            document.getElementById('projectCategory').textContent = project.category;
-            document.getElementById('projectYear').textContent = project.year;
-            document.getElementById('projectContext').textContent = project.context;
-            document.getElementById('projectRole').textContent = project.role_short || project.role; // Usamos la versión corta para el metadato
-            document.getElementById('projectPrograms').textContent = project.programs;
-            
-            // Formatear la descripción usando saltos de línea (\n)
-            document.getElementById('projectDescription').innerHTML = project.description_full.split('\n').map(p => p.trim() ? `<p class="scroll-animate">${p.trim()}</p>` : '').join('');
-            
-            document.getElementById('project-title-meta').textContent = `${project.title} · Portafolio Ayleen Bahamóndez`;
-
-
-            // 2. Cargar Imagen Principal
-            document.getElementById('projectMainImage').innerHTML = `<img src="${project.photo}" alt="Imagen principal de ${project.title}">`;
-
-            // 3. Cargar Galería de Imágenes y Sketchfab
-            const galleryContainer = document.getElementById('projectGallery');
-            galleryContainer.innerHTML = ''; 
-            
-            // Añadir Sketchfab Embed
-            if (project.sketchfab_id) {
-                galleryContainer.innerHTML += `
-                    <div class="sketchfab-embed-container gallery-item scroll-animate">
-                        <iframe title="${project.title} Modelo 3D" 
-                                frameborder="0" 
-                                allowfullscreen 
-                                mozallowfullscreen="true" 
-                                webkitallowfullscreen="true" 
-                                allow="autoplay; fullscreen; xr-spatial-tracking" 
-                                xr-spatial-tracking 
-                                execution-while-out-of-viewport 
-                                execution-while-not-rendered 
-                                web-share 
-                                src="https://sketchfab.com/models/${project.sketchfab_id}/embed?autostart=0&amp;ui_theme=dark&amp;dnt=1">
-                        </iframe>
-                        <p class="gallery-caption">Modelo 3D interactivo. Ver más en <a href="https://sketchfab.com/ayleen.bahamndez" target="_blank">Sketchfab</a>.</p>
-                    </div>
-                `;
-            }
-
-            // Añadir Imágenes Adicionales
-            const folder = project.photo_folder || project.slug; 
-            const count = project.images_count || 0;
-            
-            for (let i = 1; i <= count; i++) {
-                // La ruta sigue el formato img/carpeta/carpeta-1.webp
-                galleryContainer.innerHTML += `
-                    <div class="gallery-item scroll-animate">
-                        <img src="img/${folder}/${folder}-${i}.webp" alt="${project.title} - Foto ${i}" loading="lazy">
-                    </div>
-                `;
-            }
-
-            // Aplicar animaciones de scroll a los nuevos elementos
-            document.querySelectorAll('.project-gallery .scroll-animate').forEach(el => {
-                observer.observe(el);
-            });
-            document.querySelectorAll('.project-description-block .scroll-animate').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // 4. Cargar Paleta de Colores
-            const paletteContainer = document.getElementById('colorPaletteContainer');
-            if (project.palette && Array.isArray(project.palette) && project.palette.length > 0) {
-                paletteContainer.innerHTML = project.palette.map(color => `
-                    <div class="color-swatch scroll-animate" style="background-color: ${color};">
-                        <span class="color-code" style="color: ${isDark(color) ? '#ffffff' : '#202020'};">${color}</span>
-                    </div>
-                `).join('');
+        async function loadProject() {
+            try {
+                const response = await fetch('datos.json');
+                const projects = await response.json();
                 
-                // Observar swatches de color
-                document.querySelectorAll('.color-swatch.scroll-animate').forEach(el => {
-                    observer.observe(el);
-                });
+                const project = projects.find(p => p.slug === projectSlug);
                 
-            } else {
-                document.querySelector('.color-palette-section').style.display = 'none';
-            }
+                if (!project) {
+                    window.location.href = 'index.html';
+                    return;
+                }
 
-            // Función para determinar si el color de fondo es oscuro
-            function isDark(hex) {
-                const c = hex.substring(1);      
-                const rgb = parseInt(c, 16);     
-                const r = (rgb >> 16) & 0xff;    
-                const g = (rgb >>  8) & 0xff;    
-                const b = (rgb >>  0) & 0xff;    
-                const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; 
-                return luma < 150; 
-            }
-
-            // 5. Cargar Carrusel de "Otros Proyectos" (Radiant Style)
-            const otherProjectsCarousel = document.getElementById('otherProjectsCarousel');
-            if (allProjects) {
-                // Filtramos el proyecto actual y mezclamos el resto
-                const filteredProjects = allProjects.filter(p => p.slug !== projectSlug);
+                // Meta
+                document.title = `${project.title} - Ayleen Bahamóndez`;
                 
-                if (filteredProjects.length > 0) {
-                     const shuffledProjects = filteredProjects.sort(() => 0.5 - Math.random()).slice(0, 4); 
+                // Hero info
+                document.getElementById('projectCategory').textContent = project.category || '';
+                document.getElementById('projectTitle').textContent = project.title;
+                document.getElementById('projectYear').textContent = project.year || '';
+                document.getElementById('projectContext').textContent = project.context || '';
+                document.getElementById('projectRole').textContent = project.role_short || project.role || '';
+                document.getElementById('projectPrograms').textContent = project.programs || '';
 
-                    otherProjectsCarousel.innerHTML = shuffledProjects.map(p => `
-                        <div class="card-wrapper scroll-animate">
-                            <a href="proyecto.html?slug=${p.slug}" class="project-card" tabindex="0" role="article" aria-label="${p.title}">
-                                <div class="card-image">
-                                    <img src="${p.photo}" alt="${p.title}" loading="lazy" onerror="this.src='img/placeholder.webp'">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-category">${p.category}</span>
-                                    <h3 class="card-title">${p.title}</h3>
-                                    <span class="card-year">${p.year}</span>
-                                    <span class="card-more">Ver proyecto →</span>
-                                </div>
-                            </a>
-                        </div>
-                    `).join('');
+                // Main image/video
+                const mainImageContainer = document.getElementById('mainImage');
+                if (project.video) {
+                    mainImageContainer.innerHTML = `
+                        <video autoplay muted loop playsinline>
+                            <source src="${project.video}" type="video/mp4">
+                        </video>
+                    `;
+                } else if (project.photo) {
+                    mainImageContainer.innerHTML = `<img src="${project.photo}" alt="${project.title}">`;
+                }
 
-                    // Aplicar animaciones
-                    document.querySelectorAll('.other-projects-section .scroll-animate').forEach(el => {
-                        observer.observe(el);
-                    });
-                    
-                    // 6. Inicializar la Navegación del Carrusel Dinámico
-                    const section = document.querySelector('.other-projects-section');
-                    const controls = document.createElement('div');
-                    controls.className = 'carousel-controls';
-                    
-                    const tempPrevBtn = document.createElement('button');
-                    tempPrevBtn.className = 'carousel-btn';
-                    tempPrevBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>';
-                    tempPrevBtn.setAttribute('aria-label', 'Anterior proyecto');
-                    
-                    const tempNextBtn = document.createElement('button');
-                    tempNextBtn.className = 'carousel-btn';
-                    tempNextBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>';
-                    tempNextBtn.setAttribute('aria-label', 'Siguiente proyecto');
-                    
-                    controls.appendChild(tempPrevBtn);
-                    controls.appendChild(tempNextBtn);
-                    
-                    const titleElement = section.querySelector('.other-projects-title');
-                    titleElement.insertAdjacentElement('afterend', controls);
+                // Content sections
+                document.getElementById('problemText').textContent = project.problem || '';
+                document.getElementById('solutionText').textContent = project.solution || '';
+                document.getElementById('challengeText').textContent = project.challenge || '';
+                document.getElementById('summaryText').textContent = project.summary || '';
 
-                    // Lógica de scroll para el carrusel de otros proyectos
-                    const getScrollAmount = () => {
-                        const firstCard = otherProjectsCarousel.querySelector('.card-wrapper');
-                        return firstCard ? firstCard.offsetWidth + 35 : 300;
-                    };
+                // Gallery - orden ascendente (1, 2, 3...)
+                if (project.photo_folder && project.images_count) {
+                    const gallery = document.getElementById('galleryGrid');
+                    gallery.innerHTML = '';
                     
-                    tempNextBtn.addEventListener('click', () => {
-                        const amount = getScrollAmount();
-                        const maxScroll = otherProjectsCarousel.scrollWidth - otherProjectsCarousel.clientWidth;
+                    for (let i = 1; i <= project.images_count; i++) {
+                        const item = document.createElement('div');
+                        item.className = 'gallery-item';
                         
-                        if (otherProjectsCarousel.scrollLeft >= maxScroll - 10) {
-                            otherProjectsCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-                        } else {
-                            otherProjectsCarousel.scrollBy({ left: amount, behavior: 'smooth' });
-                        }
-                    });
-
-                    tempPrevBtn.addEventListener('click', () => {
-                        const amount = getScrollAmount();
+                        const img = document.createElement('img');
+                        img.src = `img/proyectos/${project.photo_folder}/${i}.webp`;
+                        img.alt = `${project.title} - Imagen ${i}`;
+                        img.loading = 'lazy';
+                        img.onerror = function() {
+                            // Try jpg if webp fails
+                            this.src = `img/proyectos/${project.photo_folder}/${i}.jpg`;
+                            this.onerror = function() {
+                                // Try png if jpg fails
+                                this.src = `img/proyectos/${project.photo_folder}/${i}.png`;
+                                this.onerror = function() {
+                                    this.parentElement.style.display = 'none';
+                                };
+                            };
+                        };
                         
-                        if (otherProjectsCarousel.scrollLeft <= 10) {
-                            otherProjectsCarousel.scrollTo({ left: otherProjectsCarousel.scrollWidth, behavior: 'smooth' });
-                        } else {
-                            otherProjectsCarousel.scrollBy({ left: -amount, behavior: 'smooth' });
-                        }
+                        item.appendChild(img);
+                        gallery.appendChild(item);
+                    }
+                }
+
+                // Color palette
+                if (project.palette && project.palette.length > 0) {
+                    const paletteContainer = document.getElementById('paletteContainer');
+                    paletteContainer.innerHTML = '';
+                    
+                    project.palette.forEach(color => {
+                        const swatch = document.createElement('div');
+                        swatch.className = 'color-swatch';
+                        swatch.style.backgroundColor = color;
+                        swatch.innerHTML = `<span class="color-code">${color}</span>`;
+                        paletteContainer.appendChild(swatch);
                     });
                 } else {
-                     // Si no hay suficientes proyectos para mostrar (ej. solo tienes 1), ocultamos la sección
-                     section.style.display = 'none';
+                    document.getElementById('paletteSection').style.display = 'none';
                 }
+
+                // Sketchfab
+                if (project.sketchfab_id) {
+                    const sketchfabSection = document.getElementById('sketchfabSection');
+                    sketchfabSection.style.display = 'block';
+                    sketchfabSection.innerHTML = `
+                        <iframe 
+                            src="https://sketchfab.com/models/${project.sketchfab_id}/embed"
+                            allow="autoplay; fullscreen; xr-spatial-tracking"
+                            allowfullscreen
+                        ></iframe>
+                    `;
+                }
+
+                // Other projects
+                const otherProjects = projects
+                    .filter(p => p.slug !== projectSlug)
+                    .slice(0, 3);
+
+                const otherGrid = document.getElementById('otherProjectsGrid');
+                otherGrid.innerHTML = '';
+
+                otherProjects.forEach(p => {
+                    const card = document.createElement('a');
+                    card.href = `proyecto.html?slug=${p.slug}`;
+                    card.className = 'other-project-card';
+                    
+                    let mediaHTML;
+                    if (p.video) {
+                        mediaHTML = `<video autoplay muted loop playsinline><source src="${p.video}" type="video/mp4"></video>`;
+                    } else {
+                        mediaHTML = `<img src="${p.photo}" alt="${p.title}">`;
+                    }
+                    
+                    card.innerHTML = `
+                        <div class="other-project-image">
+                            ${mediaHTML}
+                            <div class="other-project-overlay">
+                                <span class="other-project-btn">Ver proyecto</span>
+                            </div>
+                        </div>
+                        <div class="other-project-info">
+                            <h3>${p.title}</h3>
+                            <span>${p.year || ''}</span>
+                        </div>
+                    `;
+                    
+                    otherGrid.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('Error:', error);
+                window.location.href = 'index.html';
             }
         }
+
+        loadProject();
     </script>
 </body>
 </html>
