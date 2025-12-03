@@ -162,6 +162,28 @@
             margin: 0 auto;
             padding: 0 4rem;
         }
+        
+        /* Nuevo: Contenedor para imágenes de contenido */
+        .content-image-wrapper {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .content-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-base);
+        }
+        
+        .content-image-wrapper img:hover {
+            transform: scale(1.01);
+        }
+        /* Fin Nuevo */
 
         .content-section {
             margin-bottom: 4rem;
@@ -499,34 +521,34 @@
         <div class="main-image" id="mainImage"></div>
 
         <section class="project-content">
-            <!-- PROBLEMA -->
             <div class="content-section" id="problemSection">
                 <h2 class="section-subtitle">Problema :</h2>
                 <p id="problemText"></p>
+                <div id="imageProblem" class="content-image-wrapper"></div>
             </div>
 
             <div class="section-divider"></div>
 
-            <!-- SOLUCIÓN -->
             <div class="content-section" id="solutionSection">
                 <h2 class="section-subtitle">Solución :</h2>
                 <p id="solutionText"></p>
+                <div id="imageSolution" class="content-image-wrapper"></div>
             </div>
 
             <div class="section-divider"></div>
 
-            <!-- DESAFÍO -->
             <div class="content-section" id="challengeSection">
                 <h2 class="section-subtitle">Desafío :</h2>
                 <p id="challengeText"></p>
+                <div id="imageChallenge" class="content-image-wrapper"></div>
             </div>
 
             <div class="section-divider"></div>
 
-            <!-- RESUMEN -->
             <div class="content-section" id="summarySection">
                 <h2 class="section-subtitle">Resumen :</h2>
                 <p id="summaryText"></p>
+                <div id="imageSummary" class="content-image-wrapper"></div>
             </div>
         </section>
 
@@ -552,152 +574,221 @@
     </footer>
 
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const projectSlug = urlParams.get('slug');
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectSlug = urlParams.get('slug');
 
-        async function loadProject() {
-            try {
-                const response = await fetch('datos.json');
-                const projects = await response.json();
+    async function loadProject() {
+        try {
+            // Fetching from the external myjson URL
+            const response = await fetch('https://api.myjson.online/v1/records/0b88c704-1bd9-4f65-b520-915b793737f2');
+            const data = await response.json();
+            
+            // Assuming the actual project data is inside the 'data' key of the myjson response structure
+            const projects = data.data; 
+            
+            if (!projects) {
+                console.error('Error: La estructura de datos de myjson no contiene la clave "data".');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const project = projects.find(p => p.slug === projectSlug);
+            
+            if (!project) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Meta
+            document.title = `${project.title} - Ayleen Bahamóndez`;
+            
+            // Hero info
+            document.getElementById('projectCategory').textContent = project.category || '';
+            document.getElementById('projectTitle').textContent = project.title;
+            document.getElementById('projectYear').textContent = project.year || '';
+            document.getElementById('projectContext').textContent = project.context || '';
+            document.getElementById('projectRole').textContent = project.role_short || project.role || '';
+            document.getElementById('projectPrograms').textContent = project.programs || '';
+
+            // Main image/video
+            const mainImageContainer = document.getElementById('mainImage');
+            if (project.video) {
+                mainImageContainer.innerHTML = `
+                    <video autoplay muted loop playsinline>
+                        <source src="${project.video}" type="video/mp4">
+                    </video>
+                `;
+            } else if (project.photo) {
+                // RUTA DE IMAGEN PRINCIPAL: ya se confirmó que funciona si el campo 'photo' de datos.json es correcto (e.g. img/sismogramas.webp)
+                mainImageContainer.innerHTML = `<img src="${project.photo}" alt="${project.title}">`;
+            }
+
+            // Content sections
+            document.getElementById('problemText').textContent = project.problem || '';
+            document.getElementById('solutionText').textContent = project.solution || '';
+            document.getElementById('challengeText').textContent = project.challenge || '';
+            document.getElementById('summaryText').textContent = project.summary || '';
+            
+            // --- LÓGICA CORREGIDA DE IMÁGENES DENTRO DE LAS SECCIONES ---
+            const imageContainers = [
+                document.getElementById('imageProblem'),
+                document.getElementById('imageSolution'),
+                document.getElementById('imageChallenge'),
+                document.getElementById('imageSummary')
+            ];
+
+            function createImageElement(folder, index, title) {
+                const item = document.createElement('img');
+                item.alt = `${title} - Imagen ${index}`;
+                item.loading = 'lazy';
                 
-                const project = projects.find(p => p.slug === projectSlug);
+                const possibleExtensions = ['.webp', '.jpg', '.png'];
+                let currentExtensionIndex = 0;
                 
-                if (!project) {
-                    window.location.href = 'index.html';
-                    return;
+                function tryNextSource() {
+                    if (currentExtensionIndex < possibleExtensions.length) {
+                        const extension = possibleExtensions[currentExtensionIndex];
+                        
+                        // ✅ RUTA CORREGIDA: Se usa img/nombre_carpeta/nombre_carpeta-indice.extension
+                        // Ejemplo: img/robot/robot-1.webp
+                        item.src = `img/${folder}/${folder}-${index}${extension}`; 
+                        
+                        currentExtensionIndex++;
+                    } else {
+                        // Ocultar el contenedor si todas las rutas fallan
+                        if (item.parentElement) {
+                            item.parentElement.style.display = 'none';
+                        }
+                    }
+                }
+                
+                item.onerror = tryNextSource; // Si falla, intenta la siguiente extensión
+                item.onload = function() {
+                    // Si carga, no hace nada más. El onerror se detiene.
+                };
+
+                // Iniciar la carga con la primera extensión
+                tryNextSource();
+                
+                return item;
+            }
+            
+            let imagesUsedInContent = 0;
+            
+            if (project.photo_folder && project.images_count) {
+                // Cargar hasta 4 imágenes en las secciones de contenido (1 a 4)
+                for (let i = 0; i < imageContainers.length; i++) {
+                    const imageIndex = i + 1;
+                    if (imageIndex <= project.images_count) {
+                        const img = createImageElement(project.photo_folder, imageIndex, project.title);
+                        imageContainers[i].appendChild(img);
+                        imagesUsedInContent++;
+                    } else {
+                        // Ocultar el contenedor si no hay imagen disponible (e.g. images_count < 4)
+                        imageContainers[i].style.display = 'none';
+                    }
                 }
 
-                // Meta
-                document.title = `${project.title} - Ayleen Bahamóndez`;
+                // Llenar Galería con imágenes restantes (5 en adelante)
+                const gallery = document.getElementById('galleryGrid');
+                gallery.innerHTML = '';
                 
-                // Hero info
-                document.getElementById('projectCategory').textContent = project.category || '';
-                document.getElementById('projectTitle').textContent = project.title;
-                document.getElementById('projectYear').textContent = project.year || '';
-                document.getElementById('projectContext').textContent = project.context || '';
-                document.getElementById('projectRole').textContent = project.role_short || project.role || '';
-                document.getElementById('projectPrograms').textContent = project.programs || '';
-
-                // Main image/video
-                const mainImageContainer = document.getElementById('mainImage');
-                if (project.video) {
-                    mainImageContainer.innerHTML = `
-                        <video autoplay muted loop playsinline>
-                            <source src="${project.video}" type="video/mp4">
-                        </video>
-                    `;
-                } else if (project.photo) {
-                    mainImageContainer.innerHTML = `<img src="${project.photo}" alt="${project.title}">`;
-                }
-
-                // Content sections
-                document.getElementById('problemText').textContent = project.problem || '';
-                document.getElementById('solutionText').textContent = project.solution || '';
-                document.getElementById('challengeText').textContent = project.challenge || '';
-                document.getElementById('summaryText').textContent = project.summary || '';
-
-                // Gallery - orden ascendente (1, 2, 3...)
-                if (project.photo_folder && project.images_count) {
-                    const gallery = document.getElementById('galleryGrid');
-                    gallery.innerHTML = '';
-                    
-                    for (let i = 1; i <= project.images_count; i++) {
+                if (project.images_count > imagesUsedInContent) {
+                    for (let i = imagesUsedInContent + 1; i <= project.images_count; i++) {
                         const item = document.createElement('div');
                         item.className = 'gallery-item';
                         
-                        const img = document.createElement('img');
-                        img.src = `img/proyectos/${project.photo_folder}/${i}.webp`;
-                        img.alt = `${project.title} - Imagen ${i}`;
-                        img.loading = 'lazy';
-                        img.onerror = function() {
-                            // Try jpg if webp fails
-                            this.src = `img/proyectos/${project.photo_folder}/${i}.jpg`;
-                            this.onerror = function() {
-                                // Try png if jpg fails
-                                this.src = `img/proyectos/${project.photo_folder}/${i}.png`;
-                                this.onerror = function() {
-                                    this.parentElement.style.display = 'none';
-                                };
-                            };
-                        };
+                        // Reutilizar la función de creación de imagen
+                        const img = createImageElement(project.photo_folder, i, project.title);
                         
                         item.appendChild(img);
                         gallery.appendChild(item);
                     }
-                }
-
-                // Color palette
-                if (project.palette && project.palette.length > 0) {
-                    const paletteContainer = document.getElementById('paletteContainer');
-                    paletteContainer.innerHTML = '';
-                    
-                    project.palette.forEach(color => {
-                        const swatch = document.createElement('div');
-                        swatch.className = 'color-swatch';
-                        swatch.style.backgroundColor = color;
-                        swatch.innerHTML = `<span class="color-code">${color}</span>`;
-                        paletteContainer.appendChild(swatch);
-                    });
                 } else {
-                    document.getElementById('paletteSection').style.display = 'none';
+                    // Ocultar sección de galería si no tiene contenido
+                    document.querySelector('.project-gallery').style.display = 'none';
                 }
 
-                // Sketchfab
-                if (project.sketchfab_id) {
-                    const sketchfabSection = document.getElementById('sketchfabSection');
-                    sketchfabSection.style.display = 'block';
-                    sketchfabSection.innerHTML = `
-                        <iframe 
-                            src="https://sketchfab.com/models/${project.sketchfab_id}/embed"
-                            allow="autoplay; fullscreen; xr-spatial-tracking"
-                            allowfullscreen
-                        ></iframe>
-                    `;
-                }
-
-                // Other projects
-                const otherProjects = projects
-                    .filter(p => p.slug !== projectSlug)
-                    .slice(0, 3);
-
-                const otherGrid = document.getElementById('otherProjectsGrid');
-                otherGrid.innerHTML = '';
-
-                otherProjects.forEach(p => {
-                    const card = document.createElement('a');
-                    card.href = `proyecto.html?slug=${p.slug}`;
-                    card.className = 'other-project-card';
-                    
-                    let mediaHTML;
-                    if (p.video) {
-                        mediaHTML = `<video autoplay muted loop playsinline><source src="${p.video}" type="video/mp4"></video>`;
-                    } else {
-                        mediaHTML = `<img src="${p.photo}" alt="${p.title}">`;
-                    }
-                    
-                    card.innerHTML = `
-                        <div class="other-project-image">
-                            ${mediaHTML}
-                            <div class="other-project-overlay">
-                                <span class="other-project-btn">Ver proyecto</span>
-                            </div>
-                        </div>
-                        <div class="other-project-info">
-                            <h3>${p.title}</h3>
-                            <span>${p.year || ''}</span>
-                        </div>
-                    `;
-                    
-                    otherGrid.appendChild(card);
-                });
-
-            } catch (error) {
-                console.error('Error:', error);
-                window.location.href = 'index.html';
+            } else {
+                // Si no hay carpeta/conteo, ocultar contenedores de imagen y galería
+                imageContainers.forEach(container => container.style.display = 'none');
+                document.querySelector('.project-gallery').style.display = 'none';
             }
-        }
+            // --- FIN LÓGICA CORREGIDA ---
 
-        loadProject();
-    </script>
+
+            // Color palette
+            if (project.palette && project.palette.length > 0) {
+                const paletteContainer = document.getElementById('paletteContainer');
+                paletteContainer.innerHTML = '';
+                
+                project.palette.forEach(color => {
+                    const swatch = document.createElement('div');
+                    swatch.className = 'color-swatch';
+                    swatch.style.backgroundColor = color;
+                    swatch.innerHTML = `<span class="color-code">${color}</span>`;
+                    paletteContainer.appendChild(swatch);
+                });
+            } else {
+                document.getElementById('paletteSection').style.display = 'none';
+            }
+
+            // Sketchfab
+            if (project.sketchfab_id) {
+                const sketchfabSection = document.getElementById('sketchfabSection');
+                sketchfabSection.style.display = 'block';
+                sketchfabSection.innerHTML = `
+                    <iframe 
+                        src="https://sketchfab.com/models/${project.sketchfab_id}/embed"
+                        allow="autoplay; fullscreen; xr-spatial-tracking"
+                        allowfullscreen
+                    ></iframe>
+                `;
+            }
+
+            // Other projects
+            const otherProjects = projects
+                .filter(p => p.slug !== projectSlug)
+                .slice(0, 3);
+
+            const otherGrid = document.getElementById('otherProjectsGrid');
+            otherGrid.innerHTML = '';
+
+            otherProjects.forEach(p => {
+                const card = document.createElement('a');
+                card.href = `proyecto.html?slug=${p.slug}`;
+                card.className = 'other-project-card';
+                
+                let mediaHTML;
+                if (p.video) {
+                    mediaHTML = `<video autoplay muted loop playsinline><source src="${p.video}" type="video/mp4"></video>`;
+                } else {
+                    mediaHTML = `<img src="${p.photo}" alt="${p.title}">`;
+                }
+                
+                card.innerHTML = `
+                    <div class="other-project-image">
+                        ${mediaHTML}
+                        <div class="other-project-overlay">
+                            <span class="other-project-btn">Ver proyecto</span>
+                        </div>
+                    </div>
+                    <div class="other-project-info">
+                        <h3>${p.title}</h3>
+                        <span>${p.year || ''}</span>
+                    </div>
+                `;
+                
+                otherGrid.appendChild(card);
+            });
+
+        } catch (error) {
+            console.error('Error al cargar el proyecto:', error);
+            window.location.href = 'index.html';
+        }
+    }
+
+    loadProject();
+</script>
 </body>
-</html>
+</html> 
